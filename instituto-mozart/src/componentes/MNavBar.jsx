@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const MNavBar = () => {
     return (
         <>
-            <Navbar bg="light" expand="lg">
+            <Navbar expand="lg">
                 <Navbar.Brand href="#home">
                     <img
                         alt="Corrupto"
