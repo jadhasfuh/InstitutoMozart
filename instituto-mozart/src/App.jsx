@@ -2,8 +2,13 @@ import React from 'react';
 import Portafolio from './componentes/Portafolio';
 import logo from './assets/img/logo.png';
 import './assets/style/styles.css';
+import ImportScript from './componentes/ImportScript';
 
 function App() {
+
+  
+    ImportScript("/js/scripts.js");
+  
 
   const portfolioLinks = [
     {
@@ -40,39 +45,39 @@ function App() {
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div className="container">
-          <a 
-            className="navbar-brand js-scroll-trigger" 
+          <a
+            className="navbar-brand js-scroll-trigger"
             href="#page-top">
             Port
           </a>
-          <button 
-            className="navbar-toggler navbar-toggler-right" 
-            type="button" 
-            data-toggle="collapse" 
-            data-target="#navbarResponsive" 
-            aria-controls="navbarResponsive" 
-            aria-expanded="false" 
+          <button
+            className="navbar-toggler navbar-toggler-right"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
             aria-label="Toggle navigation">
             <i className="fa fa-bars"></i>
           </button>
-          <div 
-            className="collapse navbar-collapse" 
+          <div
+            className="collapse navbar-collapse"
             id="navbarResponsive">
-            <ul 
+            <ul
               className="navbar-nav text-uppercase ml-auto">
-              <li 
+              <li
                 className="nav-item">
-                <a 
-                  className="nav-link js-scroll-trigger" 
+                <a
+                  className="nav-link js-scroll-trigger"
                   href="#services">
-                    Services
+                  Services
                 </a>
               </li>
               <li className="nav-item">
-                <a 
-                  className="nav-link js-scroll-trigger" 
+                <a
+                  className="nav-link js-scroll-trigger"
                   href="#portfolio">
-                    Portfolio
+                  Portfolio
                   </a>
               </li>
               <li className="nav-item">
@@ -93,7 +98,7 @@ function App() {
       <header className="masthead">
         <div className="container">
           <div className="intro-text">
-            <div className="intro-lead-in"><img src={logo} alt="Corrupto" id="HLogo"/></div>
+            <div className="intro-lead-in"><img src={logo} alt="Corrupto" id="HLogo" /></div>
             <div className="intro-heading text-uppercase">Educar con creatividad</div>
             <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
           </div>
