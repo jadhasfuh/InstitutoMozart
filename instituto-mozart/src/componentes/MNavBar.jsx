@@ -2,46 +2,75 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
+import Container from 'react-bootstrap/Container';
 import logo from '../img/logo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../style/styles.css';
 
 const MNavBar = () => {
     return (
-        <>
-            <Navbar expand="lg">
-                <Navbar.Brand href="#home">
-                    <img
-                        alt="Corrupto"
-                        src={logo}
-                        width="30"
-                        height="30"
-                        className="d-inline-block align-top"
-                    />{' '}
-                    Instituto Mozart
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button>
-                    </Form>
-                </Navbar.Collapse>
+        <div className="page-top">
+            <Navbar
+                expand="lg"
+                variant="dark"
+                fixed="top"
+                id="mainNav">
+                <Container>
+                    <Navbar.Brand>
+                        <a
+                            href="#page-top"
+                            className="js-scroll-trigger">
+                            <img
+                                src={logo}
+                                alt="Corrupto"
+                            />
+                        </a>
+                        <Button
+                            class="navbar-toggler navbar-toggler-right"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#navbarResponsive"
+                            aria-controls="navbarResponsive"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            Menu
+                            <i class="fas fa-bars ml-1"></i>
+                        </Button>
+                        <Navbar.Collapse 
+                            id="navbarResponsive">
+                            <Nav
+                                class="text-uppercase ml-auto">
+                                <Nav.Link 
+                                    className="js-scroll-trigger" 
+                                    href="#inicio">
+                                        Inicio
+                                </Nav.Link>
+                                <Nav.Link 
+                                    className="js-scroll-trigger" 
+                                    href="#nosotros">
+                                        Nosotros
+                                </Nav.Link>
+                                <Nav.Link 
+                                    className="js-scroll-trigger" 
+                                    href="#profesores">
+                                        Profesores
+                                </Nav.Link>
+                                <Nav.Link 
+                                    className="js-scroll-trigger" 
+                                    href="#instalaciones">
+                                        Instalaciones
+                                </Nav.Link>
+                                <Nav.Link 
+                                    className="js-scroll-trigger" 
+                                    href="#contacto">
+                                        Contacto
+                                </Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar.Brand>
+                </Container>
             </Navbar>
-        </>
+        </div>
     )
 }
 

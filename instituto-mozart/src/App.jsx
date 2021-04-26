@@ -1,12 +1,12 @@
 import React from 'react';
 import MNavBar from './componentes/MNavBar';
-import inicio1 from './img/inicio1.png'
+import MHeader from './componentes/MHeader';
 
 function App() {
   return (
     <div>
       <MNavBar/>
-      <center><img src={inicio1} alt="Corrupta" width="400px"/></center>
+      <MHeader/>
     </div>
   );
 }
