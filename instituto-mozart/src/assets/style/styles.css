@@ -127,15 +127,19 @@ img::-moz-selection{
 }
 
 .btn-primary{
-  background-color:#fed136;
-  border-color:#fed136;
+  /* background-color:#fed136;
+  border-color:#fed136; */
+  background-color:#2f5d62!important;
+  border-color:#2f5d62!important;
 }
 
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:hover{
-  background-color:#fec810!important;
-  border-color:#fec810!important;
+  /* background-color:#ffb037!important;
+  border-color:#ffb037!important; */
+  background-color:#1b3538!important;
+  border-color:#1b3538!important;
   color:#fff;
 }
 
@@ -258,7 +262,7 @@ img::-moz-selection{
 header.masthead{
   text-align:center;
   color:#fff;
-  background-image:url(../img/header-bg.jpg);
+  background-image:url(../img/header-bg2.jpg);
   background-repeat:no-repeat;background-attachment:scroll;
   background-position:center center;
   background-size:cover;
