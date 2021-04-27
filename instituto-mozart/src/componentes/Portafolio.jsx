@@ -1,5 +1,5 @@
 import React from 'react'
-
+import ImgPortafolio from '../assets/img/img_materiales1.jpg'
 export default ({ portfolioLinks }) => {
     return (
         <section 
@@ -9,10 +9,10 @@ export default ({ portfolioLinks }) => {
                 <div className="row">
                     <div className="col-lg-12 text-center">
                         <h2 className="section-heading text-uppercase">
-                            Portfolio
+                            Recursos
                         </h2>
                         <h3 className="section-subheading text-muted">
-                            Lorem ipsum dolor sit amet consectetur.
+                            Materiales didácticos y de reforzamiento
                         </h3>
                     </div>
                 </div>
@@ -31,7 +31,7 @@ export default ({ portfolioLinks }) => {
                                     </div>
                                     <img 
                                         className="img-fluid" 
-                                        src={`https://unsplash.it/350/140/?${Math.floor(Math.random(0, 100) * 100)}`} 
+                                        src={ImgPortafolio} 
                                         alt="portfolio_img" />
                                 </a>
                                 <div className="portfolio-caption">
