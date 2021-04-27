@@ -12,32 +12,28 @@ function App() {
 
   const portfolioLinks = [
     {
-      title: 'Threads',
-      caption: 'Illustration'
+      title: 'Ejecicios de lectura',
+      caption: 'Videos'
     },
     {
-      title: 'Explore',
-      caption: 'Graphic Design'
+      title: 'Partituras',
+      caption: 'Ejercicios'
     },
     {
-      title: 'Finish',
-      caption: 'Identity'
+      title: 'Teoría',
+      caption: 'Ejercicios'
     },
     {
-      title: 'Lines',
-      caption: 'Branding'
+      title: 'Canciones',
+      caption: 'Melodía'
     },
     {
-      title: 'Southwest',
-      caption: 'Website Design'
+      title: 'Armonización',
+      caption: 'Videos de ejercicios'
     },
     {
-      title: 'Window',
-      caption: 'Photography'
-    },
-    {
-      title: 'Pizza',
-      caption: 'I love pizza!'
+      title: 'Instrumentos',
+      caption: 'Teoría'
     }
   ]
 
@@ -70,24 +66,24 @@ function App() {
                 <a
                   className="nav-link js-scroll-trigger"
                   href="#services">
-                  Services
+                  Servicios
                 </a>
               </li>
               <li className="nav-item">
                 <a
                   className="nav-link js-scroll-trigger"
                   href="#portfolio">
-                  Portfolio
+                  Recursos
                   </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link js-scroll-trigger" href="#about">About</a>
+                <a className="nav-link js-scroll-trigger" href="#about">Acerca de</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link js-scroll-trigger" href="#team">Team</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                <a className="nav-link js-scroll-trigger" href="#contact">Contacto</a>
               </li>
             </ul>
           </div>
@@ -100,7 +96,7 @@ function App() {
           <div className="intro-text">
             <div className="intro-lead-in"><img src={logo} alt="Corrupto" id="HLogo" /></div>
             <div className="intro-heading text-uppercase">Educar con creatividad</div>
-            <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+            <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Saber más</a>
           </div>
         </div>
       </header>
@@ -110,7 +106,7 @@ function App() {
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="section-heading text-uppercase">Services</h2>
+              <h2 className="section-heading text-uppercase">Servicios</h2>
               <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
           </div>
