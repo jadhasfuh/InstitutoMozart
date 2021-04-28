@@ -2,12 +2,12 @@ import React from 'react';
 import Portafolio from './componentes/Portafolio';
 import logo from './assets/img/logo.png';
 import './assets/style/styles.css';
-import ImportScript from './componentes/ImportScript';
+//import ImportScript from './componentes/ImportScript';
 
 function App() {
 
   
-    ImportScript("/js/scripts.js");
+  //ImportScript("/js/scripts.js");
   
 
   const portfolioLinks = [
@@ -353,7 +353,7 @@ function App() {
           </div>
           <div className="row">
             <div className="col-lg-12">
-              <form id="contactForm" name="sentMessage" novalidate="novalidate">
+              <form id="contactForm" name="sentMessage" noValidate="novalidate">
                 <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">
