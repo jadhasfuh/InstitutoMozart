@@ -9,28 +9,28 @@ const Marcas = () => {
                         <div className="col-md-3 col-sm-6">
                             <a href="#something">
                                 <img className="img-fluid d-block mx-auto" 
-                                     src="img/logos/envato.jpg"
+                                     src="https://picsum.photos/200"
                                      alt="Corrupto" />
                             </a>
                         </div>
                         <div className="col-md-3 col-sm-6">
                             <a href="#something">
                                 <img className="img-fluid d-block mx-auto" 
-                                src="img/logos/designmodo.jpg" 
+                                src="https://picsum.photos/200" 
                                 alt="Corrupto" />
                             </a>
                         </div>
                         <div className="col-md-3 col-sm-6">
                             <a href="#something">
                                 <img className="img-fluid d-block mx-auto" 
-                                     src="img/logos/themeforest.jpg" 
+                                     src="https://picsum.photos/200" 
                                      alt="Corrupto" />
                             </a>
                         </div>
                         <div className="col-md-3 col-sm-6">
                             <a href="#something">
                                 <img className="img-fluid d-block mx-auto" 
-                                     src="img/logos/creative-market.jpg" 
+                                     src="https://picsum.photos/200" 
                                      alt="Corrupto" />
                             </a>
                         </div>

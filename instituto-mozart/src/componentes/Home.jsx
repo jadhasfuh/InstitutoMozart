@@ -1,16 +1,15 @@
 import React from 'react';
-import About from './About';
 import Equipo from './Equipo';
-import Portafolio from './Portafolio';
+import Actividades from './Actividades';
 import Header from './Header';
-import Servicios from './Servicios';
+import Identidad from './Identidad';
 import Marcas from './Marcas';
 import Contacto from './Contacto';
 import Footer from './Footer';
 
 const Home = () => {
 
-    const portfolioLinks = [
+    const listaActividades = [
         {
             title: 'Ejecicios de lectura',
             caption: 'Videos'
@@ -40,11 +39,10 @@ const Home = () => {
     return (
         <>
             <Header />
-            <Servicios />
-            <Portafolio portfolioLinks={portfolioLinks} />
-            <About />
+            <Identidad />
+            <Actividades listaActividades={listaActividades} />
             <Equipo />
-            <Marcas />
+            <Marcas/>
             <Contacto />
             <Footer />
         </>

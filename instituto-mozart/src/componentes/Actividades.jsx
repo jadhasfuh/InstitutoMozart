@@ -1,18 +1,18 @@
 import React from 'react'
 
-const Portafolio = ({ portfolioLinks }) => {
+const Actividades = ({ listaActividades }) => {
     return (
         <section className="bg-light page-section" id="portfolio">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="section-heading text-uppercase">Portfolio</h2>
+              <h2 className="section-heading text-uppercase">Actividades</h2>
               <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
           </div>
           <div className="row">
             {
-                portfolioLinks && portfolioLinks.map(({ title, caption }) => 
+                listaActividades && listaActividades.map(({ title, caption }) => 
                     <div className="col-md-4 col-sm-6 portfolio-item" key={title}>
                         <a className="portfolio-link" data-toggle="modal" href="#portfolioModal1">
                             <div className="portfolio-hover">
@@ -35,4 +35,4 @@ const Portafolio = ({ portfolioLinks }) => {
     )
 }
 
-export default Portafolio
+export default Actividades

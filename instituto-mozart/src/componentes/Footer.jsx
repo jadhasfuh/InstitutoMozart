@@ -8,7 +8,7 @@ const Footer = () => {
                     <div className="row align-items-center">
                         <div className="col-md-4">
                             <span className="copyright">
-                                Copyright &copy; Your Website 2019
+                            Jardín de Niños Institito Mozart 2021 &copy; 
                             </span>
                         </div>
                         <div className="col-md-4">
@@ -20,7 +20,7 @@ const Footer = () => {
                                 </li>
                                 <li className="list-inline-item">
                                     <a href="#something">
-                                        <i className="fa fa-facebook-f"/>
+                                        <i className="fa fa-facebook-official"/>
                                     </a>
                                 </li>
                                 <li className="list-inline-item">
@@ -34,12 +34,12 @@ const Footer = () => {
                             <ul className="list-inline quicklinks">
                                 <li className="list-inline-item">
                                     <a href="#something">
-                                        Privacy Policy
+                                        Priivacidad
                                     </a>
                                 </li>
                                 <li className="list-inline-item">
                                     <a href="#something">
-                                        Terms of Use
+                                        Términos de Uso
                                     </a>
                                 </li>
                             </ul>

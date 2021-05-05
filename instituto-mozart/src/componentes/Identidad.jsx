@@ -1,18 +1,18 @@
 import React from 'react'
 
-const Servicios = () => {
+const Identidad = () => {
     return (
         <>
             <section className="page-section"
-                     id="services">
+                     id="identidad">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12 text-center">
                             <h2 className="section-heading text-uppercase">
-                                Servicios
+                                Identidad
                             </h2>
                             <h3 className="section-subheading text-muted">
-                                Lorem ipsum dolor sit amet consectetur.
+                                "Educar con creatividad"
                             </h3>
                         </div>
                     </div>
@@ -20,10 +20,10 @@ const Servicios = () => {
                         <div className="col-md-4">
                             <span className="fa-stack fa-4x">
                                 <i className="fa fa-circle fa-stack-2x text-primary"/>
-                                <i className="fa fa-shopping-cart fa-stack-1x fa-inverse"/>
+                                <i className="fa fa fa-globe fa-stack-1x fa-inverse"/>
                             </span>
                             <h4 className="service-heading">
-                                E-Commerce
+                                Misión
                             </h4>
                             <p className="text-muted">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
@@ -33,10 +33,10 @@ const Servicios = () => {
                         <div className="col-md-4">
                             <span className="fa-stack fa-4x">
                                 <i className="fa fa-circle fa-stack-2x text-primary"/>
-                                <i className="fa fa-laptop fa-stack-1x fa-inverse"/>
+                                <i className="fa fa-signal fa-stack-1x fa-inverse"/>
                             </span>
                             <h4 className="service-heading">
-                                Responsive Design
+                                Visión
                             </h4>
                             <p className="text-muted">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
@@ -47,10 +47,10 @@ const Servicios = () => {
                         <div className="col-md-4">
                             <span className="fa-stack fa-4x">
                                 <i className="fa fa-circle fa-stack-2x text-primary"/>
-                                <i className="fa fa-lock fa-stack-1x fa-inverse"/>
+                                <i className="fa fa fa-graduation-cap fa-stack-1x fa-inverse"/>
                             </span>
                             <h4 className="service-heading">
-                                Web Security
+                                Compromiso
                             </h4>
                             <p className="text-muted">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
@@ -65,4 +65,4 @@ const Servicios = () => {
     )
 }
 
-export default Servicios
+export default Identidad

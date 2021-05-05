@@ -9,10 +9,10 @@ const Contacto = () => {
                     <div className="row">
                         <div className="col-lg-12 text-center">
                             <h2 className="section-heading text-uppercase">
-                                Contact Us
+                                ¡Contactanos!
                             </h2>
                             <h3 className="section-subheading text-muted">
-                                Lorem ipsum dolor sit amet consectetur.
+                                Escribenos un mensaje
                             </h3>
                         </div>
                     </div>
@@ -26,27 +26,27 @@ const Contacto = () => {
                                         <div className="form-group">
                                             <input className="form-control" 
                                                 id="name" type="text" 
-                                                placeholder="Your Name *" 
+                                                placeholder="Tu nombre *" 
                                                 required="required" 
-                                                data-validation-required-message="Please enter your name." />
+                                                data-validation-required-message="Por favor escribe tu nombre." />
                                             <p className="help-block text-danger"></p>
                                         </div>
                                         <div className="form-group">
                                             <input className="form-control" 
                                                    id="email" 
                                                    type="email" 
-                                                   placeholder="Your Email *" 
+                                                   placeholder="Tu Email *" 
                                                    required="required" 
-                                                   data-validation-required-message="Please enter your email address." />
+                                                   data-validation-required-message="Por favor ingresa tu email." />
                                             <p className="help-block text-danger"></p>
                                         </div>
                                         <div className="form-group">
                                             <input className="form-control" 
                                                    id="phone" 
                                                    type="tel" 
-                                                   placeholder="Your Phone *" 
+                                                   placeholder="Tu teléfono *" 
                                                    required="required" 
-                                                   data-validation-required-message="Please enter your phone number." />
+                                                   data-validation-required-message="Por favor ingresa tu número de teléfono." />
                                             <p className="help-block text-danger"></p>
                                         </div>
                                     </div>
@@ -54,9 +54,9 @@ const Contacto = () => {
                                         <div className="form-group">
                                             <textarea className="form-control" 
                                                       id="message" 
-                                                      placeholder="Your Message *" 
+                                                      placeholder="Tu mensaje *" 
                                                       required="required" 
-                                                      data-validation-required-message="Please enter a message."/>
+                                                      data-validation-required-message="Por favor escribe el mensaje."/>
                                             <p className="help-block text-danger"></p>
                                         </div>
                                     </div>
@@ -66,7 +66,7 @@ const Contacto = () => {
                                         <button id="sendMessageButton" 
                                                 className="btn btn-primary btn-xl text-uppercase"
                                                 type="submit">
-                                                    Send Message
+                                                    Enviar mensaje
                                                 </button>
                                     </div>
                                 </div>

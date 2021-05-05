@@ -9,10 +9,10 @@ const Equipo = () => {
                     <div className="row">
                         <div className="col-lg-12 text-center">
                             <h2 className="section-heading text-uppercase">
-                                Our Amazing Team
+                                Nuestros Profesores
                             </h2>
                             <h3 className="section-subheading text-muted">
-                                Lorem ipsum dolor sit amet consectetur.
+                                Conoce a nuestros profesores más destacados
                             </h3>
                         </div>
                     </div>
@@ -20,7 +20,7 @@ const Equipo = () => {
                         <div className="col-sm-4">
                             <div className="team-member">
                                 <img className="mx-auto rounded-circle" 
-                                     src="img/team/1.jpg" 
+                                     src="https://picsum.photos/200/1000" 
                                      alt="Corrupto" />
                                 <h4>
                                     Kay Garland
@@ -50,7 +50,7 @@ const Equipo = () => {
                         <div className="col-sm-4">
                             <div className="team-member">
                                 <img className="mx-auto rounded-circle" 
-                                     src="img/team/2.jpg" 
+                                     src="https://picsum.photos/200/1000" 
                                      alt="Corruto" />
                                 <h4>
                                     Larry Parker
@@ -80,7 +80,7 @@ const Equipo = () => {
                         <div className="col-sm-4">
                             <div className="team-member">
                                 <img className="mx-auto rounded-circle" 
-                                     src="img/team/3.jpg" 
+                                     src="https://picsum.photos/200/1000" 
                                      alt="Corrupto" />
                                 <h4>
                                     Diana Pertersen
