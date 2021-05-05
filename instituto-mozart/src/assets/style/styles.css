@@ -872,3 +872,12 @@ ul.social-buttons li a:focus,
 ul.social-buttons li a:hover{
   background-color:#fed136
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+* {
+  font-family: 'Sora', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

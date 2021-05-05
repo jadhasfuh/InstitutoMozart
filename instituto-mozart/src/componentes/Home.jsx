@@ -12,43 +12,44 @@ const Home = () => {
 
     const portfolioLinks = [
         {
-          title: 'Ejecicios de lectura',
-          caption: 'Videos'
+            title: 'Ejecicios de lectura',
+            caption: 'Videos'
         },
         {
-          title: 'Partituras',
-          caption: 'Ejercicios'
+            title: 'Partituras',
+            caption: 'Ejercicios'
         },
         {
-          title: 'Teoría',
-          caption: 'Ejercicios'
+            title: 'Teoría',
+            caption: 'Ejercicios'
         },
         {
-          title: 'Canciones',
-          caption: 'Melodía'
+            title: 'Canciones',
+            caption: 'Melodía'
         },
         {
-          title: 'Armonización',
-          caption: 'Videos de ejercicios'
+            title: 'Armonización',
+            caption: 'Videos de ejercicios'
         },
         {
-          title: 'Instrumentos',
-          caption: 'Teoría'
+            title: 'Instrumentos',
+            caption: 'Teoría'
         }
-      ]
+    ]
 
     return (
         <>
-            <Header/>
-            <Servicios/>
-            <Portafolio portfolioLinks={portfolioLinks}/>
-            <About/>
-            <Equipo/>
-            <Marcas/>
-            <Contacto/>
-            <Footer/>
+            <Header />
+            <Servicios />
+            <Portafolio portfolioLinks={portfolioLinks} />
+            <About />
+            <Equipo />
+            <Marcas />
+            <Contacto />
+            <Footer />
         </>
     )
+
 }
 
 export default Home
