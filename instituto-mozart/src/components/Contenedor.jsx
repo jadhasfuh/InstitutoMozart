@@ -9,7 +9,7 @@ import{
 
 const estilos = makeStyles(theme =>({
     root:{
-        display: 'flex'
+        display: 'flex',
     },
     toolbar: theme.mixins.toolbar,
     content: {

@@ -8,6 +8,9 @@ const theme  = createMuiTheme({
         secondary: {
             main: '#568934'
         }
+    },
+    typography: {
+        fontFamily: [ 'Arvo', 'serif'].join(','),
     }
 });
 

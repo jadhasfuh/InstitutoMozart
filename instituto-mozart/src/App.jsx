@@ -4,12 +4,11 @@ import Contenedor from './components/Contenedor';
 import theme from './theme-config';
 
 function App() {
+
   return (
 
     <ThemeProvider theme = {theme}>
-
       <Contenedor/>
-
     </ThemeProvider>
   
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Avatar, Grid, Paper } from '@material-ui/core';
+import { Avatar, Grid, Paper, Typography } from '@material-ui/core';
 import { green, blue, orange } from '@material-ui/core/colors';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew'; //valores
 import TimelineIcon from '@material-ui/icons/Timeline'; //vision
@@ -37,7 +37,7 @@ const useClasses = makeStyles(theme => ({
         padding: theme.spacing(5),
         textAlign: 'center',
         color: theme.palette.text.secondary,
-      }
+    },
 }));
 
 const Identidad = () => {
@@ -47,7 +47,11 @@ const Identidad = () => {
     return (
         <div>
 
-            <center><h1>Identidad</h1></center>
+            <center>
+                <Typography variant="h5" className={classes.typography}>
+                    IDENTIDAD
+                </Typography>
+            </center>
 
             <Grid 
                 container
@@ -64,7 +68,7 @@ const Identidad = () => {
                     <Avatar className={classes.green}>
                         <ExploreIcon />
                     </Avatar> <br/>
-                    <h3>Misión</h3>
+                    <Typography>Misión</Typography>
                 </Paper>
 
                 <Paper 
@@ -74,7 +78,7 @@ const Identidad = () => {
                     <Avatar className={classes.orange}>
                         <TimelineIcon />
                     </Avatar> <br/>
-                    <h3>Visión</h3>
+                    <Typography>Visión</Typography>
                 </Paper>
 
                 <Paper 
@@ -84,7 +88,7 @@ const Identidad = () => {
                     <Avatar className={classes.blue}>
                         <AccessibilityNewIcon />
                     </Avatar> <br/>
-                    <h3>Valores</h3>
+                    <Typography>Valores</Typography>
                 </Paper>
 
             </Grid>
