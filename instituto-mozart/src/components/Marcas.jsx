@@ -2,7 +2,7 @@ import React from 'react'
 
 const Marcas = () => {
     return (
-        <>
+        <div>
             <section className="py-5">
                 <div className="container">
                     <div className="row">
@@ -37,7 +37,7 @@ const Marcas = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 

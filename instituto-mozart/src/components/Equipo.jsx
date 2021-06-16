@@ -2,7 +2,7 @@ import React from 'react'
 
 const Equipo = () => {
     return (
-        <>
+        <div>
             <section className="bg-light page-section" 
                      id="team">
                 <div className="container">
@@ -119,7 +119,7 @@ const Equipo = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 

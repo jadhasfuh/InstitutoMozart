@@ -2,7 +2,7 @@ import React from 'react'
 
 const Contacto = () => {
     return (
-        <>
+        <div>
             <section className="page-section" 
                      id="contact">
                 <div className="container">
@@ -75,7 +75,7 @@ const Contacto = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 
