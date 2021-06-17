@@ -98,8 +98,7 @@ const Identidad = () => {
                 alignItems='center'
                 justify='center'
                 direction='row'
-                className={classes.root}
-                xs={16} sm={11} md={10} lg={12}>
+            >
 
                 <Paper
                     className={classes.paper}
@@ -107,7 +106,7 @@ const Identidad = () => {
                 >
                     <Avatar className={classes.green} onClick={handleOpen} >
                         <IconContext.Provider value = {{size: '1em'}}>
-                            <Explore className={classes.contexto}/>
+                            <Explore/>
                         </IconContext.Provider>
                     </Avatar> <br />
                     <Typography>Misión</Typography>
@@ -119,7 +118,7 @@ const Identidad = () => {
                 >
                     <Avatar className={classes.orange} onClick={handleOpen} >
                         <IconContext.Provider value = {{size: '1em'}}>
-                            <Timeline className={classes.contexto}/>
+                            <Timeline/>
                         </IconContext.Provider>
                     </Avatar> <br />
                     <Typography>Visión</Typography>
@@ -131,7 +130,7 @@ const Identidad = () => {
                 >
                     <Avatar className={classes.blue} onClick={handleOpen} >
                         <IconContext.Provider value = {{size: '10px'}}>
-                            <AccessibilityNew className={classes.contexto}/>
+                            <AccessibilityNew/>
                         </IconContext.Provider>
                     </Avatar> <br />
                     <Typography>Valores</Typography>

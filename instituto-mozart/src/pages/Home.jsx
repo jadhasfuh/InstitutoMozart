@@ -1,11 +1,11 @@
 import React from 'react';
-import Equipo from './Equipo';
-import Actividades from './Actividades';
-import Header from './Header';
-import Identidad from './Identidad';
-import Marcas from './Marcas';
-import Contacto from './Contacto';
-import Footer from './Footer';
+import Equipo from '../components/Equipo';
+import Actividades from '../components/Actividades';
+import Header from '../components/Header';
+import Identidad from '../components/Identidad';
+import Marcas from '../components/Marcas';
+import Contacto from '../components/Contacto';
+import Footer from '../components/Footer';
 import {makeStyles} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({

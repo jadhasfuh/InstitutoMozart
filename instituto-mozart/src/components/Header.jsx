@@ -6,17 +6,20 @@ const useClasses = makeStyles(theme => ({
     lema: {
         fontWeight: 'bolder',
         width: '100%',
-        height: '80vh',
+        height: '84vh',
         backgroundImage: `url(${back})`,
         backgroundSize: 'cover',
-        marginTop: '30px'
+        marginTop: '0px'
     }, 
     texto: {
-        marginTop: '30%',
-        width: '80%',
-        fontSize: '50px',
+        marginTop: '250px',
+        width: '90%',
+        fontSize: '55px',
         color: '#FFFFFF',
         textShadow: '2px 2px 10px black',
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '40px',
+        },
         lineHeight: '50px'
     }
 }));
@@ -37,7 +40,7 @@ const Header = () => {
                 className={classes.root}
                >
 
-                <Grid item xs={12} sm={10} md={8} lg={8} className={classes.lema}>
+                <Grid item xs={12} sm={12} md={10} lg={10} className={classes.lema}>
                     <center>
                         <Typography className={classes.texto}>
                             EDUCAR CON CREATIVIDAD
