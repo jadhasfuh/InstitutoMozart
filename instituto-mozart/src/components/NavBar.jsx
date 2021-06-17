@@ -5,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 const useStyles = makeStyles(theme => ({
     menuButton: {
         marginRight: theme.spacing(2),
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('md')]: {
             display: 'none',
         },
     },
@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1
     },
     appBar: {
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('md')]: {
             width: `calc(100% - ${240}px)`,
             marginLeft: 240,
         },

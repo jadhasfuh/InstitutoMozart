@@ -30,13 +30,13 @@ const Contenedor = () => {
     return (
         <div className = {classes.root}>
             <NavBar accionAbrir = {accionAbrir}/>
-            <Hidden xsDown>
+            <Hidden smDown>
                 <Cajon
                     variant = "permanent"
                     open = {true}
                 />
             </Hidden>
-            <Hidden smUp>
+            <Hidden mdUp>
                 <Cajon
                     variant = "temporary"
                     open = {abrir}
