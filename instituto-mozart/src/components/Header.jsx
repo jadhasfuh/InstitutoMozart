@@ -3,17 +3,13 @@ import {Typography, makeStyles, Grid} from '@material-ui/core';
 import back from '../images/header-bg.jpg';
 
 const useClasses = makeStyles(theme => ({
-    root: {
-        display: 'flex',
-        '& > *': {
-        },
-    },
     lema: {
         fontWeight: 'bolder',
         width: '100%',
         height: '80vh',
         backgroundImage: `url(${back})`,
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
+        marginTop: '30px'
     }, 
     texto: {
         marginTop: '30%',
@@ -50,6 +46,8 @@ const Header = () => {
                 </Grid>   
                     
             </Grid>
+
+            
 
         </div>
 

@@ -7,11 +7,6 @@ import TimelineIcon from '@material-ui/icons/Timeline'; //vision
 import ExploreIcon from '@material-ui/icons/Explore'; //mision
 
 const useClasses = makeStyles(theme => ({
-    root: {
-        display: 'flex',
-        '& > *': {
-        },
-    },
     blue: {
         color: theme.palette.getContrastText(blue[500]),
         backgroundColor: blue[500],
@@ -38,6 +33,9 @@ const useClasses = makeStyles(theme => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
+    typography: {
+        marginTop: '50px'
+    }
 }));
 
 const Identidad = () => {
