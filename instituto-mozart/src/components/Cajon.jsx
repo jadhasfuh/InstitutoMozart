@@ -27,7 +27,7 @@ const Cajon = (props) => {
     const classes = estilos();
     const history = useHistory();
     const onClickHandle = () => {
-        //history.push("/");
+        history.push("/");
     }
 
     return (
@@ -52,7 +52,6 @@ const Cajon = (props) => {
             >
                 <img src={logo} alt="logo.png" width="130px" style = {{marginLeft: '35px'}}/>
             </ListItem>
-
             <Divider />
             <Listas />
         </Drawer>

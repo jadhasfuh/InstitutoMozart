@@ -1,53 +1,54 @@
 import React from 'react'
+import {
+    Grid,
+    makeStyles,
+    Typography,
+    Divider
+} from '@material-ui/core';
+
+const useClasses = makeStyles(theme => ({
+    title: {
+        marginTop: '13px',
+        marginBottom: '-5px',
+        fontSize: '16px'
+    },
+    footer: {
+        textAlign: 'center',
+        [theme.breakpoints.up('md')]: {
+            width: `calc(100% - ${240}px)`,
+            marginLeft: '100px'
+        },
+    },
+}));
 
 const Footer = () => {
+
+    const classes = useClasses();
+
     return (
+
         <div>
-            <footer className="footer">
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-md-4">
-                            <span className="copyright">
-                            Jardín de Niños Institito Mozart 2021 &copy; 
-                            </span>
-                        </div>
-                        <div className="col-md-4">
-                            <ul className="list-inline social-buttons">
-                                <li className="list-inline-item">
-                                    <a href="#something">
-                                        <i className="fa fa-twitter"/>
-                                    </a>
-                                </li>
-                                <li className="list-inline-item">
-                                    <a href="#something">
-                                        <i className="fa fa-facebook-official"/>
-                                    </a>
-                                </li>
-                                <li className="list-inline-item">
-                                    <a href="#something">
-                                        <i className="fa fa-linkedin-in"/>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="col-md-4">
-                            <ul className="list-inline quicklinks">
-                                <li className="list-inline-item">
-                                    <a href="#something">
-                                        Priivacidad
-                                    </a>
-                                </li>
-                                <li className="list-inline-item">
-                                    <a href="#something">
-                                        Términos de Uso
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Divider/>
+            <Grid
+                container
+                spacing = {4}
+                className = {classes.footer}
+                alignItems = "center"
+                justify = "center"
+            >
+                <Grid
+                    item
+                    container
+                    alignItems = "center"
+                    justify = "center"
+                >
+                    <Typography className={classes.title}>
+                        2021 &copy;
+                    </Typography>
+                </Grid>
+            </Grid>
         </div>
+
     )
 }
 
