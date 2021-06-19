@@ -1,8 +1,34 @@
 import React from 'react'
+import GridList from '@material-ui/core/GridList'
+import GridListTitle from '@material-ui/core/GridListTile'
+import GridListTileBar from '@material-ui/core/GridListTileBar'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 
 const Actividades = ({ listaActividades }) => {
     return (
-        <section className="bg-light page-section" id="portfolio">
+      <Grid container justify="center" alignContent="center">
+        <center>
+          <Typography variant="h5">
+            ACTIVIDADES
+          </Typography>
+        </center>
+        <GridList cols={3} spacing={40} >
+          {listaActividades.map(({ title, caption }) =>
+            <Grid item sm={12} md={6} lg={4}>
+              <GridListTitle>
+                <img src={`https://unsplash.it/350/140/?${Math.floor(Math.random(0, 100) * 100)}`} alt="" />
+                <GridListTileBar
+                  title={title}
+                  subtitle={caption}
+                />
+              </GridListTitle>
+            </Grid>
+          )}
+        </GridList>
+      </Grid>
+      
+        /* <section className="bg-light page-section" id="portfolio">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
@@ -31,7 +57,7 @@ const Actividades = ({ listaActividades }) => {
             }
           </div>
         </div>
-      </section>
+      </section> */
     )
 }
 
