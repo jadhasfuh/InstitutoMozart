@@ -5,8 +5,8 @@ import Header from '../components/Header';
 import Identidad from '../components/Identidad';
 import Marcas from '../components/Marcas';
 import Contacto from '../components/Contacto';
-import Footer from '../components/Footer';
 import {makeStyles} from '@material-ui/core';
+import Footer from '../components/Footer';
 
 const useStyles = makeStyles(theme => ({
     tama:{
@@ -47,7 +47,7 @@ const Home = () => {
 
     return (
 
-        <div className = {classes.tama} >
+        <div className = {classes.tama}>
             <Header />
             <Identidad />
             <Actividades listaActividades={listaActividades} />
