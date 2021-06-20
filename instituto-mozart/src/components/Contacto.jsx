@@ -1,80 +1,90 @@
-import React from 'react'
+import React from 'react';
+import { makeStyles } from '@material-ui/styles';
+import { Avatar, Grid, Paper, Typography } from '@material-ui/core';
+import { green, blue } from '@material-ui/core/colors';
+import { FaFacebookF } from 'react-icons/fa';
+import { AiOutlineWhatsApp } from "react-icons/ai";
+import { IconContext } from 'react-icons';
+
+const useClasses = makeStyles(theme => ({
+
+    blue: {
+        color: theme.palette.getContrastText(blue[500]),
+        backgroundColor: blue[500],
+        boxShadow: theme.shadows[3],
+        width: theme.spacing(15),
+        height: theme.spacing(15),
+        cursor: 'pointer'
+    },
+    green: {
+        color: '#fff',
+        backgroundColor: green[500],
+        boxShadow: theme.shadows[3],
+        width: theme.spacing(15),
+        height: theme.spacing(15),
+        cursor: 'pointer'
+    },
+    paper: {
+        padding: theme.spacing(5),
+    },
+    typography: {
+        marginTop: '40px'
+    },
+    iconF: {
+        fontSize: '45px'
+    },
+    iconW: {
+        fontSize: '20px'
+    }
+
+}));
 
 const Contacto = () => {
+    
+    const classes = useClasses();
+
     return (
         <div>
-            <section className="page-section" 
-                     id="contact">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12 text-center">
-                            <h2 className="section-heading text-uppercase">
-                                ¡Contactanos!
-                            </h2>
-                            <h3 className="section-subheading text-muted">
-                                Escribenos un mensaje
-                            </h3>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <form id="contactForm" 
-                                 name="sentMessage" 
-                                 noValidate="novalidate">
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <input className="form-control" 
-                                                id="name" type="text" 
-                                                placeholder="Tu nombre *" 
-                                                required="required" 
-                                                data-validation-required-message="Por favor escribe tu nombre." />
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-                                        <div className="form-group">
-                                            <input className="form-control" 
-                                                   id="email" 
-                                                   type="email" 
-                                                   placeholder="Tu Email *" 
-                                                   required="required" 
-                                                   data-validation-required-message="Por favor ingresa tu email." />
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-                                        <div className="form-group">
-                                            <input className="form-control" 
-                                                   id="phone" 
-                                                   type="tel" 
-                                                   placeholder="Tu teléfono *" 
-                                                   required="required" 
-                                                   data-validation-required-message="Por favor ingresa tu número de teléfono." />
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <textarea className="form-control" 
-                                                      id="message" 
-                                                      placeholder="Tu mensaje *" 
-                                                      required="required" 
-                                                      data-validation-required-message="Por favor escribe el mensaje."/>
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    <div className="clearfix"></div>
-                                    <div className="col-lg-12 text-center">
-                                        <div id="success"></div>
-                                        <button id="sendMessageButton" 
-                                                className="btn btn-primary btn-xl text-uppercase"
-                                                type="submit">
-                                                    Enviar mensaje
-                                                </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
+            <center>
+                <Typography variant="h5" className={classes.typography}>
+                    ¡SÍGUENOS!
+                </Typography>
+            </center>
+
+            <Grid
+                container
+                alignItems='center'
+                justify='center'
+                direction='row'
+            >
+
+                <Paper
+                    className={classes.paper}
+                    elevation={0}
+                >
+                    <Avatar className={classes.blue} >
+                        <IconContext.Provider value={{ size: '1em' }}>
+                            <FaFacebookF className = {classes.iconF} />
+                        </IconContext.Provider>
+                    </Avatar>
+                </Paper>
+
+                <Paper
+                    className={classes.paper}
+                    elevation={0}
+                >
+                    <Avatar className={classes.green} >
+                        <IconContext.Provider value={{ size: '3em' }}>
+                            <AiOutlineWhatsApp className = {classes.iconW} />
+                        </IconContext.Provider>
+                    </Avatar> 
+                </Paper>
+
+            </Grid>
+
+            <br /><br />
+
         </div>
     )
 }

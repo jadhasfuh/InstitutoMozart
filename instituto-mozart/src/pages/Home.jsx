@@ -1,12 +1,12 @@
 import React from 'react';
-import Equipo from '../components/Equipo';
 import Actividades from '../components/Actividades';
 import Header from '../components/Header';
 import Identidad from '../components/Identidad';
-import Marcas from '../components/Marcas';
 import Contacto from '../components/Contacto';
 import {makeStyles} from '@material-ui/core';
 import Footer from '../components/Footer';
+import Opiniones from '../components/Opiniones';
+import Destacado from '../components/Destacado';
 
 const useStyles = makeStyles(theme => ({
     tama:{
@@ -51,8 +51,8 @@ const Home = () => {
             <Header />
             <Identidad />
             <Actividades listaActividades={listaActividades} />
-            <Equipo />
-            <Marcas/>
+            <Destacado/>
+            <Opiniones/>
             <Contacto />
             <Footer />
         </div>

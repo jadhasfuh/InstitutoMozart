@@ -1,9 +1,9 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Avatar, Grid, Paper, Typography, Modal, Backdrop, Fade } from '@material-ui/core';
 import { green, blue, orange } from '@material-ui/core/colors';
-import {AccessibilityNew, Timeline, Explore} from '@material-ui/icons'; //valores vision mision
-import {IconContext} from 'react-icons';
+import { AccessibilityNew, Timeline, Explore } from '@material-ui/icons'; //valores vision mision
+import { IconContext } from 'react-icons';
 
 const useClasses = makeStyles(theme => ({
     blue: {
@@ -49,6 +49,9 @@ const useClasses = makeStyles(theme => ({
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3)
     },
+    icon: {
+        fontSize: '45px'
+    }
 }));
 
 const Identidad = () => {
@@ -66,7 +69,7 @@ const Identidad = () => {
 
     return (
         <div>
-            
+
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -105,8 +108,8 @@ const Identidad = () => {
                     elevation={0}
                 >
                     <Avatar className={classes.green} onClick={handleOpen} >
-                        <IconContext.Provider value = {{size: '1em'}}>
-                            <Explore/>
+                        <IconContext.Provider value={{ size: '1em' }}>
+                            <Explore  className={classes.icon}/>
                         </IconContext.Provider>
                     </Avatar> <br />
                     <Typography>Misión</Typography>
@@ -117,8 +120,8 @@ const Identidad = () => {
                     elevation={0}
                 >
                     <Avatar className={classes.orange} onClick={handleOpen} >
-                        <IconContext.Provider value = {{size: '1em'}}>
-                            <Timeline/>
+                        <IconContext.Provider value={{ size: '1em' }}>
+                            <Timeline className={classes.icon}/>
                         </IconContext.Provider>
                     </Avatar> <br />
                     <Typography>Visión</Typography>
@@ -129,8 +132,8 @@ const Identidad = () => {
                     elevation={0}
                 >
                     <Avatar className={classes.blue} onClick={handleOpen} >
-                        <IconContext.Provider value = {{size: '10px'}}>
-                            <AccessibilityNew/>
+                        <IconContext.Provider value={{ size: '10px' }}>
+                            <AccessibilityNew className={classes.icon}/>
                         </IconContext.Provider>
                     </Avatar> <br />
                     <Typography>Valores</Typography>
