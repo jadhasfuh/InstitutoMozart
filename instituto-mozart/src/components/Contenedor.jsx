@@ -39,8 +39,11 @@ const Contenedor = () => {
 
     return (
         <div className={classes.root}>
+            
             <NavBar accionAbrir={accionAbrir} />
+
             <Router>
+
                 <Hidden smDown>
                     <Cajon
                         variant="permanent"
@@ -87,9 +90,10 @@ const Contenedor = () => {
                             <NotFound />
                         </Route>
                     </Switch>
-
                 </div>
+
             </Router>
+
         </div>
     )
 }
