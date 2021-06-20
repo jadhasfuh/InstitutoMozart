@@ -7,6 +7,10 @@ import {
 import NavBar from './NavBar';
 import Cajon from './Cajon';
 import Home from '../pages/Home';
+import Publicaciones from '../pages/Publicaciones';
+import Info from '../pages/Info';
+import ZonaJuegos from '../pages/ZonaJuegos';
+import InicioSesion from './InicioSesion';
 import NotFound from '../pages/NotFound';
 import {
     makeStyles,
@@ -36,44 +40,56 @@ const Contenedor = () => {
     return (
         <div className={classes.root}>
             <NavBar accionAbrir={accionAbrir} />
-            <Hidden smDown>
-                <Cajon
-                    variant="permanent"
-                    open={true}
-                />
-            </Hidden>
-            <Hidden mdUp>
-                <Cajon
-                    variant="temporary"
-                    open={abrir}
-                    onClose={accionAbrir}
-                />
-            </Hidden>
-            <div className={classes.content}>
-                <div className={classes.toolbar}></div>
-                <Router>
+            <Router>
+                <Hidden smDown>
+                    <Cajon
+                        variant="permanent"
+                        open={true}
+                    />
+                </Hidden>
+                <Hidden mdUp>
+                    <Cajon
+                        variant="temporary"
+                        open={abrir}
+                        onClose={accionAbrir}
+                    />
+                </Hidden>
+                <div className={classes.content}>
+                    <div className={classes.toolbar}></div>
+
                     <Switch>
-                        <Route exact path="/">
-                            <Home />
-                        </Route>
-                        <Route path="/publicaciones">
-                            
-                        </Route>
-                        <Route path="/zonajuegos">
-                            
-                        </Route>
-                        <Route path="/configuracion">
-                            
-                        </Route>
-                        <Route path="/info">
-                            
-                        </Route>
+                        <Route
+                            exact
+                            path="/"
+                            render={props => <Home {...props} />}
+                        />
+                        <Route
+                            exact
+                            path="/publicaciones"
+                            render={props => <Publicaciones {...props} />}
+                        />
+                        <Route
+                            exact
+                            path="/zonajuegos"
+                            render={props => <ZonaJuegos {...props} />}
+                        />
+                        <Route
+                            exact
+                            path="/configuracion"
+                            render={props => <InicioSesion {...props} />}
+                        />
+                        <Route
+                            exact
+                            path="/info"
+                            render={props => <Info {...props} />}
+                        />
                         <Route>
                             <NotFound />
                         </Route>
                     </Switch>
-                </Router>
-            </div>
+
+                </div>
+            </Router>
         </div>
     )
 }
