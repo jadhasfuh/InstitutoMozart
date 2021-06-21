@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import {
     makeStyles,
     Drawer,
@@ -9,11 +9,14 @@ import {
     ListItemText
 } from '@material-ui/core';
 import logo from '../images/logo.png';
-import SettingsIcon from '@material-ui/icons/Settings';
+import { auth } from '../firebaseconfig';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NewReleasesIcon from '@material-ui/icons/NewReleases';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
+import SettingsIcon from '@material-ui/icons/Settings';
 import InfoIcon from '@material-ui/icons/Info';
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 
 const estilos = makeStyles(theme => ({
     drawer: {
@@ -33,7 +36,7 @@ const estilos = makeStyles(theme => ({
         bottom: 0,
         width: '240px',
         backgroundColor: '#2196F3',
-        textAlign: 'center',
+        textAlign: 'left',
     }
 }));
 
@@ -41,6 +44,24 @@ const Cajon = (props) => {
 
     const classes = estilos();
     const { history } = props;
+    const [usuario, setusUsuario] = useState(null);
+
+    const historial = useHistory();
+
+    useEffect(() => {
+        auth.onAuthStateChanged ( (user) => {
+            if(user){
+                setusUsuario(user.email);
+                console.log(user.email);
+            }
+        })
+    }, []);
+
+    const cerrarSesion = () => {
+        auth.signOut();
+        setusUsuario(null);
+        historial.push("/login");
+    }
 
     const itemsList = [
         {
@@ -80,7 +101,7 @@ const Cajon = (props) => {
                 justify="center"
                 alignItems="center"
             >
-                <img src={logo} alt="logo.png" width="130px" style={{ marginLeft: '35px' }} />
+                <img src={logo} alt="logo.png" width="130px" height="50px" style={{ marginLeft: '35px', marginTop:'-5px' }} />
             </ListItem>
             <Divider />
 
@@ -94,14 +115,44 @@ const Cajon = (props) => {
                         </ListItem>
                     );
                 })}
+                {
+                usuario ?
+                (
+                    <ListItem button key = "Dashboard" onClick={() => history.push("/dashboard")}>
+                        <ListItemIcon>
+                            <SettingsIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Dashboard"/>
+                    </ListItem>
+                )
+                :
+                (
+                    <span></span>   
+                )
+                }
             </List>
 
-            <ListItem button className={classes.conf} key = "Configuración" onClick={() => history.push("/configuracion")}>
-                <ListItemIcon>
-                    <SettingsIcon />
-                </ListItemIcon>
-                <ListItemText primary="Configuración"/>
-            </ListItem>
+            {
+                usuario ?
+                (
+                <ListItem button className={classes.conf} key = "Configuración" onClick={cerrarSesion}>
+                    <ListItemIcon>
+                        <ExitToAppIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Cerrar Sesión"/>
+                </ListItem>
+                )
+                :
+                (
+                <ListItem button className={classes.conf} key = "Configuración" onClick={() => history.push("/login")}>
+                    <ListItemIcon>
+                        <AccountCircleIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Admin"/>
+                </ListItem>
+                )
+            }
+
         </Drawer>
     )
 }

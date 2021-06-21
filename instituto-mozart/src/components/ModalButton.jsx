@@ -5,23 +5,6 @@ import { Avatar, Paper, Typography, Modal, Backdrop, Fade } from '@material-ui/c
 import { AccessibilityNew, Timeline, Explore } from '@material-ui/icons'; //valores vision mision
 import { IconContext } from 'react-icons';
 
-export const validValues = [
-    "valores",
-    "mision",
-    "vision"
-];
-
-const stateByName = {
-    valores: AccessibilityNew,
-    mision: Timeline,
-    vision: Explore
-};
-
-const renderState = state => {
-    const IconState = stateByName[state];
-    return <IconState />
-};
-
 const useClasses = makeStyles(theme => ({
 
     paper: {
@@ -38,7 +21,6 @@ const useClasses = makeStyles(theme => ({
     },
     paperM: {
         backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
         textAlign: 'justify'
@@ -48,6 +30,23 @@ const useClasses = makeStyles(theme => ({
     }
 
 }));
+
+export const validValues = [
+    "valores",
+    "mision",
+    "vision"
+];
+
+const stateByName = {
+    valores: AccessibilityNew,
+    mision: Timeline,
+    vision: Explore
+};
+
+const renderState = state => {
+    const IconState = stateByName[state];
+    return <IconState/>
+};
 
 const ModalButton = ({state, title, description, color}) => {
 
@@ -73,7 +72,7 @@ const ModalButton = ({state, title, description, color}) => {
                 closeAfterTransition
                 BackdropComponent={Backdrop}
                 BackdropProps={{
-                    timeout: 500,
+                    timeout: 600,
                 }}
             >
                 <Fade in={open}>
@@ -89,7 +88,7 @@ const ModalButton = ({state, title, description, color}) => {
                 elevation={0}
             >
                 <Avatar className={color} onClick={handleOpen} >
-                    <IconContext.Provider value={{ size: '6em' }}>
+                    <IconContext.Provider value={{ fontSize:'6em' }}>
                         {renderState(state)}
                     </IconContext.Provider>
                 </Avatar> <br />

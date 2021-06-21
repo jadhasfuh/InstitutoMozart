@@ -11,7 +11,7 @@ import { red } from '@material-ui/core/colors';
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 345,
-        maxHeight: 150,
+        maxHeight: 200,
         margin: '20px',
     },
     avatar: {

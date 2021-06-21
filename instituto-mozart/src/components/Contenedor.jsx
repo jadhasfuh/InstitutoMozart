@@ -8,6 +8,7 @@ import NavBar from './NavBar';
 import Cajon from './Cajon';
 import Home from '../pages/Home';
 import Publicaciones from '../pages/Publicaciones';
+import Dashboard from '../pages/Dashboard';
 import Info from '../pages/Info';
 import ZonaJuegos from '../pages/ZonaJuegos';
 import InicioSesion from './InicioSesion';
@@ -78,13 +79,18 @@ const Contenedor = () => {
                         />
                         <Route
                             exact
-                            path="/configuracion"
+                            path="/login"
                             render={props => <InicioSesion {...props} />}
                         />
                         <Route
                             exact
                             path="/info"
                             render={props => <Info {...props} />}
+                        />
+                        <Route
+                            exact
+                            path="/dashboard"
+                            render={props => <Dashboard {...props} />}
                         />
                         <Route>
                             <NotFound />
