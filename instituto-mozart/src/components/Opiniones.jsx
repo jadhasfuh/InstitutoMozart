@@ -23,10 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
     parrafo: {
         textAlign: 'justify',
-        lineHeight: '1.5em',
-        height: '3em',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
+        height: '50px',
         width: '100%'
     }
 }));
@@ -91,6 +88,7 @@ const Opiniones = () => {
                             variant = "body2"
                             color = "textSecondary"
                             component = "p"
+                            noWrap
                             className = {classes.parrafo}>
                                 {comentario}
                         </Typography>

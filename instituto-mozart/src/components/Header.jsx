@@ -37,7 +37,6 @@ const Header = () => {
                 alignItems='center'
                 justify='center'
                 direction='row'
-                className={classes.root}
                >
 
                 <Grid item xs={12} sm={12} md={10} lg={10} className={classes.lema}>

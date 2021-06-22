@@ -75,7 +75,7 @@ const Cajon = (props) => {
             onClick: () => history.push("/zonajuegos")
         },
         {
-            text: "Info",
+            text: "Información",
             icon: <InfoIcon />,
             onClick: () => history.push("/info")
         }
