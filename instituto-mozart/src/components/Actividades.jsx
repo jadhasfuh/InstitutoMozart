@@ -1,35 +1,65 @@
-import React from 'react'
-import GridList from '@material-ui/core/GridList'
-import GridListTitle from '@material-ui/core/GridListTile'
-import GridListTileBar from '@material-ui/core/GridListTileBar'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: 450,
+    maxHeight: 300,
+    margin: '10px',
+  },
+  typography: {
+    marginTop: '50px',
+    marginBottom: '30px'
+  },
+  parrafo: {
+    textAlign: 'justify',
+    height: '50px',
+    width: '100%'
+  }
+}));
 
 const Actividades = ({ listaActividades }) => {
-    return (
-      
-      <Grid container justify="center" alignContent="center">
-        <center>
-          <Typography variant="h5">
-            ACTIVIDADES
-          </Typography>
-        </center>
-        <GridList cols={3} spacing={40} >
-          {listaActividades.map(({ title, caption }) =>
-            <Grid item sm={12} md={6} lg={4} key={title}>
-              <GridListTitle>
-                <img src={`https://unsplash.it/350/140/?${Math.floor(Math.random(0, 100) * 100)}`} alt="" />
-                <GridListTileBar
-                  title={title}
-                  subtitle={caption}
-                />
-              </GridListTitle>
-            </Grid>
-          )}
-        </GridList>
+
+  const classes = useStyles();
+
+  return (
+
+    <div>
+      <center>
+        <Typography variant="h5" className={classes.typography}>
+          ACTIVIDADES
+        </Typography>
+      </center>
+      <Grid
+        container
+        alignItems="center"
+        justify="center"
+        direction="row"
+      >
+        {listaActividades.map(({ title, caption }) =>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <img src={`https://unsplash.it/450/200/?${Math.floor(Math.random(0, 100) * 100)}`} alt="" />
+              <CardContent> 
+                <Typography gutterBottom variant="h5" component="h2">
+                  {title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {caption}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        )}
       </Grid>
-      
-    )
+    </div>
+
+  )
 }
 
 export default Actividades
