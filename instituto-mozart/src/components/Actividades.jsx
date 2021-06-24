@@ -15,11 +15,6 @@ const useStyles = makeStyles((theme) => ({
   typography: {
     marginTop: '50px',
     marginBottom: '30px'
-  },
-  parrafo: {
-    textAlign: 'justify',
-    height: '50px',
-    width: '100%'
   }
 }));
 
@@ -45,13 +40,16 @@ const Actividades = ({ listaActividades }) => {
           <Card className={classes.root}>
             <CardActionArea>
               <img src={`https://unsplash.it/450/200/?${Math.floor(Math.random(0, 100) * 100)}`} alt="" />
-              <CardContent> 
-                <Typography gutterBottom variant="h5" component="h2">
-                  {title}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {caption}
-                </Typography>
+              <CardContent>
+                <center>
+                  <Typography gutterBottom variant="h5">
+                    {title}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p" >
+                    {caption}
+                  </Typography>
+                </center>
+
               </CardContent>
             </CardActionArea>
           </Card>
