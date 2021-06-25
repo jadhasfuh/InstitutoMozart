@@ -58,15 +58,17 @@ const Identidad = () => {
                 <ModalButton
                     state="mision"
                     title="Misión"
-                    description="In velit incididunt elit incididunt est sint consequat excepteur ut.
-                    Ipsum non aliquip laboris commodo quis.Esse non sunt qui est aute qui."
+                    description="Desarrollar las capacidades de los niños de nivel preescolar a través de un modelo
+                    educativo transdisciplinario, que respete los ritmos y modos de aprendizaje de cada niño y que
+                    potencilice sus capacidades naturales a través de procesos creativos."
                     color={classes.green}
                 />
                 <ModalButton
                     state="vision"
                     title="Visión"
-                    description="In velit incididunt elit incididunt est sint consequat excepteur ut.
-                    Ipsum non aliquip laboris commodo quis.Esse non sunt qui est aute qui."
+                    description="Ser una institución innovadora, precursora de nuevas formas de trabajo en los
+                    procesos de aprendizaje que permitan a los niños obtener su mayor nivel de desarrollo y crecer
+                    de forma asertiva e integral."
                     color={classes.blue}
                 />
                 <ModalButton

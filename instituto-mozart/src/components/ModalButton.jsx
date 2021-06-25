@@ -17,7 +17,7 @@ const useClasses = makeStyles(theme => ({
         margin: 'auto',
         alignItems: 'center',
         justifyContent: 'center',
-        maxWidth: '80%'
+        maxWidth: '70%'
     },
     paperM: {
         backgroundColor: theme.palette.background.paper,
@@ -27,6 +27,11 @@ const useClasses = makeStyles(theme => ({
     },
     icon: {
         fontSize: '45px'
+    },
+    
+    m_title: {
+        marginTop: '20px',
+        marginBottom: '30px'
     }
 
 }));
@@ -77,8 +82,16 @@ const ModalButton = ({state, title, description, color}) => {
             >
                 <Fade in={open}>
                     <div className={classes.paperM}>
-                        <center><Typography variant="h6" id="transition-modal-title">{title}</Typography></center>
-                        <Typography variant="caption" id="transition-modal-description">{description}</Typography>
+                        <center><Typography
+                            variant="h5"
+                            id="transition-modal-title"
+                            className={classes.m_title}
+                        >{title}</Typography></center>
+                        <Typography
+                            variant="body1"
+                            color="textPrimary"
+                            id="transition-modal-description"
+                        >{description}</Typography>
                     </div>
                 </Fade>
             </Modal>
