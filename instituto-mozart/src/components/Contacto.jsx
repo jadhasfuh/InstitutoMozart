@@ -95,7 +95,7 @@ const Contacto = () => {
                     elevation={0}
                 >
                     <a
-                        href="https://www.facebook.com/institutomozartsahuayo"
+                        href="https://www.instagram.com/instituto_mozart_sahuayo/"
                         target="_blank"
                     >
                         <Avatar className={[classes.pink,classes.contact_circle]} >
