@@ -37,7 +37,7 @@ const Actividades = ({ listaActividades }) => {
         direction="row"
       >
         {listaActividades.map(({ title, caption }) =>
-          <Card className={classes.root}>
+          <Card className={classes.root} key={title+caption}>
             <CardActionArea>
               <img src={`https://unsplash.it/450/200/?${Math.floor(Math.random(0, 100) * 100)}`} alt="" />
               <CardContent>

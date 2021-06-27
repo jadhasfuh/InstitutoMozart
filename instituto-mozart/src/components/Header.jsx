@@ -8,15 +8,17 @@ const useClasses = makeStyles(theme => ({
         width: '100%',
         height: '84vh',
         backgroundImage: `url(${back})`,
-        backgroundSize: 'cover',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
         marginTop: '0px'
     }, 
     texto: {
-        marginTop: '250px',
+        marginTop: '280px',
         width: '90%',
         fontSize: '55px',
         color: '#FFFFFF',
-        textShadow: '2px 2px 10px black',
+        textShadow: '2px 2px 15px black',
         [theme.breakpoints.down('xs')]: {
             fontSize: '40px',
         },
