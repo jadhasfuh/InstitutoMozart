@@ -20,12 +20,12 @@ const useClasses = makeStyles(theme => ({
         color: '#fff',
         backgroundColor: green[500],
         boxShadow: theme.shadows[3],
-        width: theme.spacing(15),
-        height: theme.spacing(15),
+        width: theme.spacing(10),
+        height: theme.spacing(10),
         cursor: 'pointer'
     },
     paper: {
-        padding: theme.spacing(5),
+        padding: theme.spacing(2),
     },
     typography: {
         marginTop: '40px'
@@ -35,12 +35,18 @@ const useClasses = makeStyles(theme => ({
     },
     iconW: {
         fontSize: '20px'
+    },
+
+    floating_contact: {
+        position: 'fixed',
+        bottom: '80px',
+        right: '40px'
     }
 
 }));
 
 const Contacto = () => {
-    
+
     const classes = useClasses();
 
     return (
@@ -63,25 +69,30 @@ const Contacto = () => {
                     className={classes.paper}
                     elevation={0}
                 >
-                    <Avatar className={classes.blue} >
-                        <IconContext.Provider value={{ size: '1em' }}>
-                            <FaFacebookF className = {classes.iconF} />
-                        </IconContext.Provider>
-                    </Avatar>
-                </Paper>
-
-                <Paper
-                    className={classes.paper}
-                    elevation={0}
-                >
-                    <Avatar className={classes.green} >
-                        <IconContext.Provider value={{ size: '3em' }}>
-                            <AiOutlineWhatsApp className = {classes.iconW} />
-                        </IconContext.Provider>
-                    </Avatar> 
+                    <a
+                        href="https://www.facebook.com/institutomozartsahuayo"
+                        target="_blank"
+                    >
+                        <Avatar className={classes.blue} >
+                            <IconContext.Provider value={{ size: '1em' }}>
+                                <FaFacebookF className={classes.iconF} />
+                            </IconContext.Provider>
+                        </Avatar>
+                    </a>
                 </Paper>
 
             </Grid>
+
+            <a
+                href="https://api.whatsapp.com/send?phone=523531522293&text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Instituto%20Mozart."
+                target="_blank"
+            >
+                <Avatar className={[classes.green, classes.floating_contact]} >
+                    <IconContext.Provider value={{ size: '3em' }}>
+                        <AiOutlineWhatsApp className={classes.iconW} />
+                    </IconContext.Provider>
+                </Avatar>
+            </a>
 
             <br /><br />
 
