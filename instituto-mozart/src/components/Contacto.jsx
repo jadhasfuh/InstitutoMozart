@@ -1,20 +1,27 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Avatar, Grid, Paper, Typography } from '@material-ui/core';
-import { green, blue } from '@material-ui/core/colors';
-import { FaFacebookF } from 'react-icons/fa';
+import { green, blue, pink } from '@material-ui/core/colors';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { SiInstagram } from 'react-icons/si'
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { IconContext } from 'react-icons';
 
 const useClasses = makeStyles(theme => ({
 
-    blue: {
-        color: theme.palette.getContrastText(blue[500]),
-        backgroundColor: blue[500],
+    contact_circle: {
         boxShadow: theme.shadows[3],
         width: theme.spacing(15),
         height: theme.spacing(15),
         cursor: 'pointer'
+    },
+    blue: {
+        color: theme.palette.getContrastText(blue[500]),
+        backgroundColor: blue[500],
+    },
+    pink: {
+        color: theme.palette.getContrastText(pink[500]),
+        backgroundColor: pink[500],
     },
     green: {
         color: '#fff',
@@ -36,7 +43,9 @@ const useClasses = makeStyles(theme => ({
     iconW: {
         fontSize: '20px'
     },
-
+    iconI: {
+        fontSize: '50px'
+    },
     floating_contact: {
         position: 'fixed',
         bottom: '80px',
@@ -73,9 +82,25 @@ const Contacto = () => {
                         href="https://www.facebook.com/institutomozartsahuayo"
                         target="_blank"
                     >
-                        <Avatar className={classes.blue} >
+                        <Avatar className={[classes.blue,classes.contact_circle]} >
                             <IconContext.Provider value={{ size: '1em' }}>
                                 <FaFacebookF className={classes.iconF} />
+                            </IconContext.Provider>
+                        </Avatar>
+                    </a>
+                </Paper>
+
+                <Paper
+                    className={classes.paper}
+                    elevation={0}
+                >
+                    <a
+                        href="https://www.facebook.com/institutomozartsahuayo"
+                        target="_blank"
+                    >
+                        <Avatar className={[classes.pink,classes.contact_circle]} >
+                            <IconContext.Provider value={{ size: '1em' }}>
+                                <SiInstagram className={classes.iconI} />
                             </IconContext.Provider>
                         </Avatar>
                     </a>
