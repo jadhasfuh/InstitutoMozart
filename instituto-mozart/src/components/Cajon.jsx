@@ -50,10 +50,7 @@ const Cajon = (props) => {
 
     useEffect(() => {
         auth.onAuthStateChanged ( (user) => {
-            if(user){
-                setusUsuario(user.email);
-                console.log(user.email);
-            }
+            if(user) setusUsuario(user.email);
         })
     }, []);
 

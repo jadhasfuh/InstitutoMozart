@@ -11,6 +11,17 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1
     },
+    typo: {
+        fontSize: '20px',
+        marginTop: '30px',
+        marginBottom: '20px'
+    },
+    icon: {
+        fontSize: '100px'
+    },
+    container: {
+        textAlign: 'center'
+    }
 
 }));
 
@@ -46,11 +57,11 @@ const Publicaciones = () => {
                         )
                         :
                         (
-                            <div>
-                                <Typography>
-                                    No hay publicaciones para mostrar :)
+                            <div className={classes.container}>
+                                <Typography className={classes.typo}>
+                                    No hay publicaciones para mostrar
                                 </Typography>
-                                <EventBusyIcon />
+                                <EventBusyIcon className={classes.icon}/>
                             </div>
                         )
                 }

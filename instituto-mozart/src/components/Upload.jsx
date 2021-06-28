@@ -32,6 +32,7 @@ const Upload = () => {
     const classes = useStyles();
     const [publicacion, setPublicacion] = useState('');
     const [error, setError] = useState(null);
+    const [mensaje, setMensaje] = useState(null);
 
     const publicar = async (e) => {
         e.preventDefault();
@@ -46,12 +47,11 @@ const Upload = () => {
         try {
             // eslint-disable-next-line
             const data = await store.collection('publicaciones').add(pub);
-            console.log('registrado');
+            setMensaje('Publicación realizada :)');
         } catch (e) {
-            console.log(e);
+            setError('Error al publicar, algo salió mal :(');
         }
         setPublicacion('');
-        //setImagen('');
     };
 
     return (
@@ -104,6 +104,17 @@ const Upload = () => {
                         error != null ? (
                             <Typography style={{ color: '#FF0000', marginTop: '10px', textAlign: 'center' }}>
                                 {error}
+                            </Typography>
+                        )
+                            :
+                            (
+                                <span />
+                            )
+                    }
+                    {
+                        mensaje != null ? (
+                            <Typography style={{ color: '#2196F3', marginTop: '10px', textAlign: 'center' }}>
+                                {mensaje}
                             </Typography>
                         )
                             :
