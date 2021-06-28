@@ -6,12 +6,13 @@ const useStyles = makeStyles(theme => ({
     lema: {
         width: '100%',
         height: '500px',
-        backgroundImage: `url(${destacado})`,
         backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         marginTop: '30px',
-        borderRadius: '10px'
+        borderRadius: '10px',
+        border: 'none',
+        backgroundImage: `url(${destacado})`
     },
 }))
 

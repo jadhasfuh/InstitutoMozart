@@ -7,6 +7,8 @@ import { store } from '../firebaseconfig';
 import EventBusyIcon from '@material-ui/icons/EventBusy';
 import Upload from '../components/Upload';
 import { auth } from '../firebaseconfig';
+import BounceLoader from "react-spinners/BounceLoader";
+import { blue } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -39,6 +41,11 @@ const Publicaciones = () => {
     //LLAMA A LAS PUBLICACIONES
     const [publicaciones, setPublicaciones] = useState('');
 
+    //CARGA
+    const [carga, setCarga] = useState(true);
+    // eslint-disable-next-line
+    const [state, setState] = useState({});
+
     useEffect(() => {
         //REVISION ADMIN
         auth.onAuthStateChanged((user) => {
@@ -49,8 +56,12 @@ const Publicaciones = () => {
             const { docs } = await store.collection('publicaciones').get();
             const arreglo = docs.map(item => ({ id: item.id, ...item.data() }));
             setPublicaciones(arreglo);
+            setCarga(false);
         }
         getPublicaciones();
+        return () => {
+            setState({});
+        };
     }, []);
 
     return (
@@ -72,25 +83,42 @@ const Publicaciones = () => {
                         )
                 }
                 {
-                    publicaciones.length !== 0 ?
+                    carga ?
                         (
-                            <Post publicaciones={publicaciones} />
+                            <BounceLoader
+                                css={`
+                                    display: block;
+                                    margin: 0 auto;
+                                    margin-top: 30vh;
+                                    border-color: red;
+                                    `}
+                                size={100}
+                                loading={carga}
+                                color={blue[500]}
+                            />
                         )
                         :
                         (
-                            <Grid
-                                item xs={12}
-                                container
-                                spacing={3}
-                                className={classes.container}
-                                justify="center"
-                                alignItems="center"
-                            >
-                                <Typography className={classes.typo}>
-                                    No hay publicaciones para mostrar
-                                </Typography>
-                                <EventBusyIcon className={classes.icon} />
-                            </Grid>
+                            publicaciones.length !== 0 ?
+                                (
+                                    <Post publicaciones={publicaciones} />
+                                )
+                                :
+                                (
+                                    <Grid
+                                        item xs={12}
+                                        container
+                                        spacing={3}
+                                        className={classes.container}
+                                        justify="center"
+                                        alignItems="center"
+                                    >
+                                        <Typography className={classes.typo}>
+                                            No hay publicaciones para mostrar
+                                        </Typography>
+                                        <EventBusyIcon className={classes.icon} />
+                                    </Grid>
+                                )
                         )
                 }
             </Grid>

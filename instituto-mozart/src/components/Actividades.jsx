@@ -10,11 +10,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: 450,
     maxHeight: 300,
-    margin: '10px',
+    margin: '20px',
   },
   typography: {
     marginTop: '50px',
     marginBottom: '30px'
+  },
+  img: {
+    width: '450px',
+    height: '200px'
   }
 }));
 
@@ -36,10 +40,10 @@ const Actividades = ({ listaActividades }) => {
         justify="center"
         direction="row"
       >
-        {listaActividades.map(({ title, caption }) =>
-          <Card className={classes.root} key={title+caption}>
+        {listaActividades.map(({ title, caption, src }) => 
+          <Card className={classes.root} key={title+caption}> {console.log(src)}
             <CardActionArea>
-              <img src={`https://unsplash.it/450/200/?${Math.floor(Math.random(0, 100) * 100)}`} alt="" />
+              <img src={src} alt="Actividad" className={classes.img}/>
               <CardContent>
                 <center>
                   <Typography gutterBottom variant="h5">

@@ -7,6 +7,9 @@ import {makeStyles} from '@material-ui/core';
 import Footer from '../components/Footer';
 import Opiniones from '../components/Opiniones';
 import Destacado from '../components/Destacado';
+import musica from '../images/musica.jpg';
+import nuevanorm from '../images/nuevanorm.jpg';
+import deporte from '../images/deporte.jpg';
 
 const useStyles = makeStyles(theme => ({
     tama:{
@@ -18,28 +21,34 @@ const Home = () => {
 
     const listaActividades = [
         {
-            title: 'Ejecicios de lectura',
-            caption: 'Videos'
+            title: 'Música',
+            caption: 'Videos',
+            src: musica
         },
         {
-            title: 'Partituras',
-            caption: 'Ejercicios'
+            title: 'Recreación',
+            caption: 'Ejercicios',
+            src: nuevanorm
         },
         {
-            title: 'Teoría',
-            caption: 'Ejercicios'
+            title: 'Deporte',
+            caption: 'Ejercicios',
+            src: deporte
         },
         {
-            title: 'Canciones',
-            caption: 'Melodía'
+            title: 'Música',
+            caption: 'Melodía',
+            src: musica
         },
         {
-            title: 'Armonización',
-            caption: 'Videos de ejercicios'
+            title: 'Recreación',
+            caption: 'Videos de ejercicios',
+            src: nuevanorm
         },
         {
-            title: 'Instrumentos',
-            caption: 'Teoría'
+            title: 'Deporte',
+            caption: 'Teoría',
+            src: deporte
         }
     ];
 

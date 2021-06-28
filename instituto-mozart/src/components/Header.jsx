@@ -14,13 +14,13 @@ const useClasses = makeStyles(theme => ({
         marginTop: '0px'
     }, 
     texto: {
-        marginTop: '280px',
-        width: '90%',
+        marginTop: '290px',
+        width: '70%',
         fontSize: '55px',
         color: '#FFFFFF',
         textShadow: '2px 2px 15px black',
         [theme.breakpoints.down('xs')]: {
-            fontSize: '40px',
+            fontSize: '40px'
         },
         lineHeight: '50px'
     }

@@ -10,8 +10,8 @@ import { red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 345,
-        maxHeight: 200,
+        width: 450,
+        maxHeight: 300,
         margin: '20px',
     },
     avatar: {
@@ -46,6 +46,12 @@ const opiniones = [
         comentario: "La calidad educativa que se afrecerá, ya que los creadores del instituto son  ....",
         nombre: "Mariccela Murguía",
         fecha: "10 de Marzo de 2019"
+    },
+    {
+        inicial: "A",
+        comentario: "Excelente escuela!",
+        nombre: "Adrián Ceja",
+        fecha: "28 de Junio de 2021"
     }
 ]
 

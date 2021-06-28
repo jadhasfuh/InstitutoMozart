@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     BrowserRouter as Router,
     Switch,
@@ -17,6 +17,8 @@ import {
     makeStyles,
     Hidden,
 } from '@material-ui/core';
+import BounceLoader from "react-spinners/BounceLoader";
+import { blue } from '@material-ui/core/colors';
 
 const estilos = makeStyles(theme => ({
     root: {
@@ -27,21 +29,34 @@ const estilos = makeStyles(theme => ({
         flexGrow: 1,
         padding: theme.spacing(-1)
     }
+
 }));
 
 const Contenedor = () => {
 
-    const classes = estilos();
-    const [abrir, setAbrir] = useState(false);
+    //PANTALLA DE CARGA
+    const [carga, setCarga] = useState(false);
+    useEffect(() => {
+        setCarga(true);
+        setTimeout(() => {
+            setCarga(false);
+        }, 2000)
+    }, []);
 
+    //ESTILOS
+    const classes = estilos();
+
+    //DRAWER OPEN/CLOSE
+    const [abrir, setAbrir] = useState(false);
     const accionAbrir = () => {
         setAbrir(!abrir);
     }
 
     return (
         <div className={classes.root}>
-            
+
             <NavBar accionAbrir={accionAbrir} />
+
 
             <Router>
 
@@ -60,42 +75,60 @@ const Contenedor = () => {
                 </Hidden>
                 <div className={classes.content}>
                     <div className={classes.toolbar}></div>
-
-                    <Switch>
-                        <Route
-                            exact
-                            path="/"
-                            render={props => <Home {...props} />}
-                        />
-                        <Route
-                            exact
-                            path="/publicaciones"
-                            render={props => <Publicaciones {...props} />}
-                        />
-                        <Route
-                            exact
-                            path="/zonajuegos"
-                            render={props => <ZonaJuegos {...props} />}
-                        />
-                        <Route
-                            exact
-                            path="/login"
-                            render={props => <InicioSesion {...props} />}
-                        />
-                        <Route
-                            exact
-                            path="/info"
-                            render={props => <Info {...props} />}
-                        />
-                        <Route
-                            exact
-                            path="/dashboard"
-                            render={props => <Dashboard {...props} />}
-                        />
-                        <Route>
-                            <NotFound />
-                        </Route>
-                    </Switch>
+                    {
+                        carga ?
+                            (
+                                <BounceLoader
+                                    css={`
+                                    display: block;
+                                    margin: 0 auto;
+                                    margin-top: 30vh;
+                                    border-color: red;
+                                    `}
+                                    size={100}
+                                    loading={carga}
+                                    color={blue[500]}
+                                />
+                            )
+                            :
+                            (
+                                <Switch>
+                                    <Route
+                                        exact
+                                        path="/"
+                                        render={props => <Home {...props} />}
+                                    />
+                                    <Route
+                                        exact
+                                        path="/publicaciones"
+                                        render={props => <Publicaciones {...props} />}
+                                    />
+                                    <Route
+                                        exact
+                                        path="/zonajuegos"
+                                        render={props => <ZonaJuegos {...props} />}
+                                    />
+                                    <Route
+                                        exact
+                                        path="/login"
+                                        render={props => <InicioSesion {...props} />}
+                                    />
+                                    <Route
+                                        exact
+                                        path="/info"
+                                        render={props => <Info {...props} />}
+                                    />
+                                    <Route
+                                        exact
+                                        path="/dashboard"
+                                        render={props => <Dashboard {...props} />}
+                                    />
+                                    <Route>
+                                        <NotFound />
+                                    </Route>
+                                </Switch>
+                            )
+                    }
                 </div>
 
             </Router>

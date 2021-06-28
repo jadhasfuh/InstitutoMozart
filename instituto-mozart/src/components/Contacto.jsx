@@ -29,7 +29,8 @@ const useClasses = makeStyles(theme => ({
         padding: theme.spacing(2),
     },
     typography: {
-        marginTop: '40px'
+        marginTop: '40px',
+        marginBottom: '20px'
     },
     iconF: {
         fontSize: '45px'

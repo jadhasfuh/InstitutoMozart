@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
     root: {
         width: '100%',
-        marginBottom: '20px'
+        marginTop: '30px'
     },
     avatar: {
         backgroundColor: grey[500]
