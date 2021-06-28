@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import { store } from '../firebaseconfig';
-import { Grid, Paper, TextField, Button, Typography } from '@material-ui/core'
+import { Grid, Paper, TextField, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles';
 import { blue } from '@material-ui/core/colors';
-import {GetDate} from './GetDate'
+import { GetDate } from './GetDate';
+import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
         textAlign: 'center',
-        color: theme.palette.text.secondary
-    },
-    typography: {
-        marginTop: '30px',
-        marginBottom: '30px'
+        color: theme.palette.text.secondary,
+        marginTop: '30px'
     },
     btnstyle: {
         "&:hover": {
@@ -24,53 +22,57 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '30px',
         color: theme.palette.getContrastText(blue[200]),
         backgroundColor: blue[200]
+    }, clabel: {
+        marginTop: '20px'
     }
+
 }));
 
 const Upload = () => {
 
+    //ESTILOS
     const classes = useStyles();
+
+    //PARTES DE LA PUBLICACION
     const [publicacion, setPublicacion] = useState('');
     const [error, setError] = useState(null);
     const [mensaje, setMensaje] = useState(null);
 
+    //PUBLICACION 
     const publicar = async (e) => {
+
         e.preventDefault();
+
         if (!publicacion.trim()) {
-            setError('La descripción está vacia');
+            setError('La descripción está vacia :(');
         }
+
         const date = GetDate();
         const pub = {
             publication: publicacion,
             fecha: date
+
         };
+
         try {
             // eslint-disable-next-line
             const data = await store.collection('publicaciones').add(pub);
             setMensaje('Publicación realizada :)');
+            window.location.replace('');
         } catch (e) {
             setError('Error al publicar, algo salió mal :(');
         }
+
         setPublicacion('');
+        
     };
 
     return (
         <Grid
-            item xs={12} sm={12} md={6} lg={6}
+            item xs={12}
             container
             spacing={3}
         >
-            <Grid item xs={12}>
-                <Paper
-                    className={classes.paper}
-                    elevation={0}
-                    variant="outlined"
-                >
-                    <Typography variant="h6" className={classes.typography}>
-                        PUBLICAR
-                    </Typography>
-                </Paper>
-            </Grid>
 
             <Grid item xs={12}>
                 <Paper
@@ -101,26 +103,17 @@ const Upload = () => {
                         </Button>
                     </form>
                     {
-                        error != null ? (
-                            <Typography style={{ color: '#FF0000', marginTop: '10px', textAlign: 'center' }}>
+                        error &&
+                            <Alert severity="error" className={classes.clabel}>
                                 {error}
-                            </Typography>
-                        )
-                            :
-                            (
-                                <span />
-                            )
+                            </Alert>
                     }
                     {
-                        mensaje != null ? (
-                            <Typography style={{ color: '#2196F3', marginTop: '10px', textAlign: 'center' }}>
-                                {mensaje}
-                            </Typography>
-                        )
-                            :
-                            (
-                                <span />
-                            )
+                        mensaje &&
+                        <Alert severity="success" className={classes.clabel}>
+                            {mensaje}
+                        </Alert>
+
                     }
                 </Paper>
             </Grid>

@@ -56,13 +56,18 @@ const useClasses = makeStyles(theme => ({
 
 const Contacto = () => {
 
+    //ESTILOS
     const classes = useClasses();
 
     return (
+
         <div>
 
             <center>
-                <Typography variant="h5" className={classes.typography}>
+                <Typography
+                    variant="h5"
+                    className={classes.typography}
+                >
                     ¡SÍGUENOS!
                 </Typography>
             </center>
@@ -111,7 +116,7 @@ const Contacto = () => {
             </Grid>
 
             <a
-                href="https://api.whatsapp.com/send?phone=523531522293&text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Instituto%20Mozart."
+                href="https://api.whatsapp.com/send?phone=5213531058296&text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Instituto%20Mozart."
                 target="_blank"
                 rel="noopener noreferrer"
             >

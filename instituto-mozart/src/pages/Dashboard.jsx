@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles';
 import ChangePass from '../components/ChangePass';
-import Upload from '../components/Upload';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -36,7 +35,6 @@ const Dashboard = () => {
                 spacing={3}
             >
                 <ChangePass />
-                <Upload />
                 
             </Grid>
 

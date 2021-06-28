@@ -7,6 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/styles';
 import { useHistory } from 'react-router-dom';
+import Alert from '@material-ui/lab/Alert';
 
 const useClasses = makeStyles(theme => ({
 
@@ -36,7 +37,7 @@ const useClasses = makeStyles(theme => ({
     },
     clabel: {
         margin: '20px 0'
-    },
+    }
 
 }));
 
@@ -54,11 +55,15 @@ const InicioSesion = () => {
         event.preventDefault()
         auth.signInWithEmailAndPassword(email, pass)
             .then((r) => {
-                historial.push("/");    
+                historial.push("/");
             })
             .catch((err) => {
                 if (err.code === 'auth/wrong-password') {
                     setMsgError('La contraseña no coincide :(');
+                }else if (err.code === 'auth/invalid-email'){
+                    setMsgError('Correo electrónico inválido :(');
+                }else if (err.code === 'auth/user-not-found'){
+                    setMsgError('Usuario inexistente :(');
                 }
             });
     };
@@ -122,9 +127,9 @@ const InicioSesion = () => {
                 </form>
                 {
                     msgError != null ? (
-                        <Typography style={{ color: '#FF0000', marginTop: '10px', textAlign: 'center' }}>
+                        <Alert severity="error" className = {classes.clabel}>
                             {msgError}
-                        </Typography>
+                        </Alert>
                     )
                         :
                         (

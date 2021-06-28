@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     makeStyles,
     Drawer,
@@ -42,24 +42,29 @@ const estilos = makeStyles(theme => ({
 
 const Cajon = (props) => {
 
+    //ESTILOS
     const classes = estilos();
-    const { history } = props;
-    const [usuario, setusUsuario] = useState(null);
 
+    //HISTORY PARA ROUTER
+    const { history } = props;
     const historial = useHistory();
 
+    //HOOK USUARIO
+    const [usuario, setusUsuario] = useState(null);
     useEffect(() => {
-        auth.onAuthStateChanged ( (user) => {
-            if(user) setusUsuario(user.email);
+        auth.onAuthStateChanged((user) => {
+            if (user) setusUsuario(user.email);
         })
     }, []);
 
+    //BOTON Y REDIRECCION CERRAR SESION
     const cerrarSesion = () => {
         auth.signOut();
         setusUsuario(null);
         historial.push("/login");
     }
 
+    //MENU LATERAL (CAJON)
     const itemsList = [
         {
             text: "Publicaciones",
@@ -98,56 +103,89 @@ const Cajon = (props) => {
                 justify="center"
                 alignItems="center"
             >
-                <img src={logo} alt="logo.png" width="130px" height="50px" style={{ marginLeft: '35px', marginTop:'-5px' }} />
+                <img
+                    src={logo}
+                    alt="logo.png"
+                    width="130px"
+                    height="50px"
+                    style={{ 
+                        marginLeft: '35px',
+                        marginTop: '-5px'
+                    }}
+                />
             </ListItem>
+
             <Divider />
 
             <List component='nav'>
-                {itemsList.map((item, index) => {
-                    const { text, icon, onClick } = item;
-                    return (
-                        <ListItem button key={text} onClick={onClick}>
-                            {icon && <ListItemIcon>{icon}</ListItemIcon>}
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    );
-                })}
                 {
-                usuario ?
-                (
-                    <ListItem button key = "Dashboard" onClick={() => history.push("/dashboard")}>
+                
+                    itemsList.map((item) => {
+
+                        const { text, icon, onClick } = item;
+                        return (
+                            <ListItem
+                                button
+                                key={text}
+                                onClick={onClick}
+                            >
+                                {
+                                    icon &&
+                                        <ListItemIcon>
+                                            {icon}
+                                        </ListItemIcon>
+                                }
+                                <ListItemText primary={text} />
+                            </ListItem>
+                        );
+                    })
+                }
+                {
+                    usuario &&
+
+                    <ListItem
+                        button
+                        key="Dashboard"
+                        onClick={() => history.push("/dashboard")}
+                    >
                         <ListItemIcon>
                             <SettingsIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Dashboard"/>
+                        <ListItemText primary="Dashboard" />
                     </ListItem>
-                )
-                :
-                (
-                    <span></span>   
-                )
+
                 }
             </List>
 
             {
                 usuario ?
-                (
-                <ListItem button className={classes.conf} key = "Configuración" onClick={cerrarSesion}>
-                    <ListItemIcon>
-                        <ExitToAppIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Cerrar Sesión"/>
-                </ListItem>
-                )
-                :
-                (
-                <ListItem button className={classes.conf} key = "Configuración" onClick={() => history.push("/login")}>
-                    <ListItemIcon>
-                        <AccountCircleIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Admin"/>
-                </ListItem>
-                )
+                    (
+                        <ListItem
+                            button
+                            className={classes.conf}
+                            key="Configuración"
+                            onClick={cerrarSesion}
+                        >
+                            <ListItemIcon>
+                                <ExitToAppIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Cerrar Sesión" />
+                        </ListItem>
+                    )
+                    :
+                    (
+                        <ListItem
+                            button
+                            className={classes.conf}
+                            key="Configuración"
+                            onClick={() => history.push("/login")}
+                        >
+                            <ListItemIcon>
+                                <AccountCircleIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Admin" />
+                        </ListItem>
+                    )
             }
 
         </Drawer>

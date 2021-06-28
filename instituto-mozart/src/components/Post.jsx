@@ -21,9 +21,6 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 
 const useStyles = makeStyles((theme) => ({
 
-    rootDiv: {
-        flexGrow: 1
-    },
     paper: {
         padding: theme.spacing(2),
         textAlign: 'justify',
@@ -35,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
     root: {
         width: '100%',
-        margin: '20px'
+        marginBottom: '20px'
     },
     avatar: {
         backgroundColor: grey[500]
@@ -58,8 +55,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Post = ({ publicaciones }) => {
 
+    //ESTILOS
     const classes = useStyles();
 
+    //REVISION SI ES ADMIN
     const [usuario, setusUsuario] = useState(null);
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
@@ -67,12 +66,16 @@ const Post = ({ publicaciones }) => {
         })
     }, []);
 
+    //ABRE MODAL DE BORRADO
     const borrarPublicacion = async (id) => {
         setId(id);
         setOpenD(true);
     }
 
+    //HOOK MODAL BORRADO
     const [openD, setOpenD] = useState(false);
+
+    //BORRADO DE ACUERDO AL ID DE PUBLICACION
     const setDelete = async (e) => {
         e.preventDefault();
         try {
@@ -83,14 +86,18 @@ const Post = ({ publicaciones }) => {
             console.log(e);
         }
     }
+
+    //OCULTART MODAL BORRADO
     const handleCloseD = () => {
         setOpenD(false);
     };
 
+    //HOOK STATE DE LOS DATOS A EDITAR
     const [publica, setPublica] = useState(null);
     const [fecha, setFecha] = useState(null);
     const [id, setId] = useState(null)
 
+    //ABRE MODAL DE EDICION
     const editarPublicacion = (id, publication, fecha) => {
         setPublica(publication);
         setFecha(fecha);
@@ -98,12 +105,15 @@ const Post = ({ publicaciones }) => {
         setOpen(true);
     }
 
+    //HOOK MODAL EDICION
     const [open, setOpen] = useState(false);
 
+    //OCULTART MODAL EDICION
     const handleClose = () => {
         setOpen(false);
     };
 
+    //EDICION DE ACUERDO AL ID DE PUBLICACION
     const setUpdate = async (e) => {
         e.preventDefault();
         const update = {
@@ -121,79 +131,78 @@ const Post = ({ publicaciones }) => {
 
     return (
 
-        <div className={classes.rootDiv}>
+        <Grid
+            item xs={12}
+            container
+            alignItems="center"
+            justify="center"
+            spacing={3}
+        >
             <Grid
-                item xs={12} sm={12} md={12} lg={12}
+                item xs={12}
                 container
-                alignItems="center"
                 justify="center"
-                spacing={3}
             >
-                <Grid
-                    item xs={12}
-                    container
-                    justify="center"
-                >
-                    {
-                        publicaciones.map((item) =>
-                            <Card
-                                className={classes.root}
-                                key={item.id}
-                                elevation={1}
-                            >
-                                <CardHeader
-                                    avatar={
-                                        <Avatar aria-label="recipe" className={classes.avatar}>
-                                            D
-                                        </Avatar>
-                                    }
-                                    title="Dirección"
-                                    subheader={item.fecha}
-                                />
-                                <CardContent>
-                                    <InputBase
-                                        multiline
-                                        value={item.publication}
-                                        disabled={true}
-                                        fullWidth
-                                        className={classes.parrafo}
-                                    />
-                                </CardContent>
-                                {
-                                    usuario ? (
-                                        <CardActions>
-                                            <Button
-                                                size="small"
-                                                onClick={
-                                                    (id) => {
-                                                        borrarPublicacion(item.id);
-                                                    }
-                                                }
-                                                className={classes.borrar}
-                                            >
-                                                <HighlightOffIcon />Borrar
-                                            </Button>
-                                            <Button
-                                                size="small"
-                                                onClick={
-                                                    (id, publication) => {
-                                                        editarPublicacion(item.id, item.publication, item.fecha);
-                                                    }
-                                                }
-                                                className={classes.editar}
-                                            >
-                                                <EditIcon />Editar
-                                            </Button>
-                                        </CardActions>
-                                    ) : (
-                                        <span></span>
-                                    )
+                {
+                    publicaciones.map((item) =>
+                        <Card
+                            className={classes.root}
+                            key={item.id}
+                            elevation={1}
+                        >
+                            <CardHeader
+                                avatar={
+                                    <Avatar aria-label="recipe" className={classes.avatar}>
+                                        D
+                                    </Avatar>
                                 }
-                            </Card>
-                        )
-                    }
-                </Grid>
+                                title="Dirección"
+                                subheader={item.fecha}
+                            />
+                            <CardContent>
+                                <InputBase
+                                    multiline
+                                    value={item.publication}
+                                    disabled={true}
+                                    fullWidth
+                                    className={classes.parrafo}
+                                />
+                            </CardContent>
+                            {
+                                usuario ? (
+                                    <CardActions>
+                                        <Button
+                                            size="small"
+                                            onClick={
+                                                (id) => {
+                                                    borrarPublicacion(item.id);
+                                                }
+                                            }
+                                            className={classes.borrar}
+                                        >
+                                            <HighlightOffIcon />Borrar
+                                        </Button>
+                                        <Button
+                                            size="small"
+                                            onClick={
+                                                (id, publication) => {
+                                                    editarPublicacion(item.id, item.publication, item.fecha);
+                                                }
+                                            }
+                                            className={classes.editar}
+                                        >
+                                            <EditIcon />Editar
+                                        </Button>
+                                    </CardActions>
+                                ) : (
+                                    <span></span>
+                                )
+                            }
+                        </Card>
+                    )
+                }
             </Grid>
+
 
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title" className={classes.editar}>
@@ -228,7 +237,7 @@ const Post = ({ publicaciones }) => {
             </Dialog>
 
             <Dialog open={openD} onClose={handleCloseD} aria-labelledby="form-dialog-title">
-                <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
+                <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title" className={classes.borrar}>
                     <HighlightOffIcon />Borrar Publicación
                 </DialogTitle>
                 <DialogContent>
@@ -252,7 +261,8 @@ const Post = ({ publicaciones }) => {
                     </Button>
                 </DialogActions>
             </Dialog>
-        </div>
+
+        </Grid>
 
     )
 }

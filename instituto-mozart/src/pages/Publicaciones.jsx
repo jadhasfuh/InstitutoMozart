@@ -5,6 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 import { store } from '../firebaseconfig';
 import EventBusyIcon from '@material-ui/icons/EventBusy';
+import Upload from '../components/Upload';
+import { auth } from '../firebaseconfig';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -28,11 +30,21 @@ const useStyles = makeStyles((theme) => ({
 
 const Publicaciones = () => {
 
+    //ESTILOS
     const classes = useStyles();
 
+    //CONFIRMA QUE SEA ADMIN
+    const [usuario, setusUsuario] = useState(null);
+
+    //LLAMA A LAS PUBLICACIONES
     const [publicaciones, setPublicaciones] = useState('');
 
     useEffect(() => {
+        //REVISION ADMIN
+        auth.onAuthStateChanged((user) => {
+            if (user) setusUsuario(user.email);
+        })
+        //MOSTRAR PUBLICACIONES
         const getPublicaciones = async () => {
             const { docs } = await store.collection('publicaciones').get();
             const arreglo = docs.map(item => ({ id: item.id, ...item.data() }));
@@ -51,18 +63,34 @@ const Publicaciones = () => {
                 spacing={3}
             >
                 {
+                    usuario ? (
+                        <Upload />
+                    )
+                        :
+                        (
+                            <span></span>
+                        )
+                }
+                {
                     publicaciones.length !== 0 ?
                         (
                             <Post publicaciones={publicaciones} />
                         )
                         :
                         (
-                            <div className={classes.container}>
+                            <Grid
+                                item xs={12}
+                                container
+                                spacing={3}
+                                className={classes.container}
+                                justify="center"
+                                alignItems="center"
+                            >
                                 <Typography className={classes.typo}>
                                     No hay publicaciones para mostrar
                                 </Typography>
-                                <EventBusyIcon className={classes.icon}/>
-                            </div>
+                                <EventBusyIcon className={classes.icon} />
+                            </Grid>
                         )
                 }
             </Grid>
