@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '100px'
     },
     container: {
+        flexGrow: 1,
         textAlign: 'center'
     }
 
@@ -105,19 +106,21 @@ const Publicaciones = () => {
                                 )
                                 :
                                 (
-                                    <Grid
-                                        item xs={12}
-                                        container
-                                        spacing={3}
-                                        className={classes.container}
-                                        justify="center"
-                                        alignItems="center"
-                                    >
-                                        <Typography className={classes.typo}>
-                                            No hay publicaciones para mostrar
-                                        </Typography>
+                                    <div className={classes.container}>
+                                        <Grid
+                                            item xs={12}
+                                            container
+                                            spacing={3}
+                                            className={classes.container}
+                                            justify="center"
+                                        >
+                                            <Typography className={classes.typo}>
+                                                No hay publicaciones para mostrar
+                                            </Typography>
+                                            <br />
+                                        </Grid>
                                         <EventBusyIcon className={classes.icon} />
-                                    </Grid>
+                                    </div>
                                 )
                         )
                 }

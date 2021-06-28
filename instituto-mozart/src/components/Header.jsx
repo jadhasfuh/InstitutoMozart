@@ -14,7 +14,7 @@ const useClasses = makeStyles(theme => ({
         marginTop: '0px'
     }, 
     texto: {
-        marginTop: '290px',
+        marginTop: '40vh',
         width: '70%',
         fontSize: '55px',
         color: '#FFFFFF',
