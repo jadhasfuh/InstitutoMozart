@@ -9,7 +9,7 @@ function App() {
 
     <ThemeProvider theme={theme}>
       <Contenedor />
-    </ThemeProvider> //He
+    </ThemeProvider>
 
   );
 }
