@@ -7,9 +7,13 @@ import {makeStyles} from '@material-ui/core';
 import Footer from '../components/Footer';
 import Opiniones from '../components/Opiniones';
 import Destacado from '../components/Destacado';
-import musica from '../images/musica.jpg';
-import nuevanorm from '../images/nuevanorm.jpg';
+import cocina from '../images/cocina.jpg';
 import deporte from '../images/deporte.jpg';
+import festivales from '../images/festivales.jpg';
+import tradiciones from '../images/tradiciones.jpg'; 
+import civicos from '../images/civicos.jpg'; 
+import visitas from '../images/visitas.jpg'; 
+import musica from '../images/musica.jpg';
 
 const useStyles = makeStyles(theme => ({
     tama:{
@@ -21,34 +25,39 @@ const Home = () => {
 
     const listaActividades = [
         {
-            title: 'Música',
-            caption: 'Videos',
-            src: musica
+            title: 'Cocina',
+            caption: '¡Taller de cocina, con nuestros pequeños!',
+            src: cocina
         },
         {
-            title: 'Recreación',
-            caption: 'Ejercicios',
-            src: nuevanorm
-        },
-        {
-            title: 'Deporte',
-            caption: 'Ejercicios',
+            title: 'Deportes',
+            caption: 'Educación física, bicipaseos, festivales, entre otras.',
             src: deporte
         },
         {
-            title: 'Música',
-            caption: 'Melodía',
+            title: 'Musica',
+            caption: 'Taller de iniciación musical.',
             src: musica
         },
         {
-            title: 'Recreación',
-            caption: 'Videos de ejercicios',
-            src: nuevanorm
+            title: 'Eventos Cívicos',
+            caption: 'Participación en eventos municipales.',
+            src: civicos
         },
         {
-            title: 'Deporte',
-            caption: 'Teoría',
-            src: deporte
+            title: 'Visitas guiadas',
+            caption: 'Las visitas ponen a los alumnos en contacto con la realidad misma.',
+            src: visitas
+        },
+        {
+            title: 'Festivales',
+            caption: 'Una de las mas bellas cualidades de la verdadera amistad, es entender y ser entendido.',
+            src: festivales
+        },
+        {
+            title: 'Tradiciones',
+            caption: 'Manteniendo vivas nuestras tradiciones con nuestros pequeños.',
+            src: tradiciones
         }
     ];
 

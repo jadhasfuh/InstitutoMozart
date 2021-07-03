@@ -9,7 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 450,
-    maxHeight: 300,
+    maxHeight: 320,
     margin: '20px',
   },
   typography: {
@@ -41,7 +41,7 @@ const Actividades = ({ listaActividades }) => {
         direction="row"
       >
         {listaActividades.map(({ title, caption, src }) => 
-          <Card className={classes.root} key={title+caption}> {console.log(src)}
+          <Card className={classes.root} key={title+caption}>
             <CardActionArea>
               <img src={src} alt="Actividad" className={classes.img}/>
               <CardContent>

@@ -30,10 +30,16 @@ const Info = () => {
     //PANTALLA DE CARGA
     const [carga, setCarga] = useState(false);
     useEffect(() => {
-        setCarga(true);
-        setTimeout(() => {
-            setCarga(false);
-        }, 500)
+        // clean up controller
+        let isSubscribed = true;
+        if (isSubscribed) {
+            setCarga(true);
+            setTimeout(() => {
+                setCarga(false);
+            }, 500);
+        }
+        // cancel subscription to useEffect
+        return () => (isSubscribed = false);
     }, []);
 
     return (
@@ -63,7 +69,7 @@ const Info = () => {
                             direction='row'
                             className={classes.root}
                         >
-                            <Card className={classes.ubicacion}>
+                            <Card className={classes.ubicacion} elevation={0}>
                                 <CardContent>
                                     <center>
                                         <Typography gutterBottom variant="h3">

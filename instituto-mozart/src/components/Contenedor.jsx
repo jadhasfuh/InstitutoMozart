@@ -13,6 +13,7 @@ import Info from '../pages/Info';
 import ZonaJuegos from '../pages/ZonaJuegos';
 import InicioSesion from './InicioSesion';
 import NotFound from '../pages/NotFound';
+import Game from '../pages/Game';
 import {
     makeStyles,
     Hidden,
@@ -122,6 +123,11 @@ const Contenedor = () => {
                                         exact
                                         path="/dashboard"
                                         render={props => <Dashboard {...props} />}
+                                    />
+                                    <Route
+                                        exact
+                                        path="/game"
+                                        render={props => <Game {...props} />}
                                     />
                                     <Route>
                                         <NotFound />

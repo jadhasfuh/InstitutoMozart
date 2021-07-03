@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Grid, InputBase, TextField } from '@material-ui/core'
 import { auth } from '../firebaseconfig';
 import { makeStyles } from '@material-ui/styles';
@@ -61,9 +61,13 @@ const Post = ({ publicaciones }) => {
     //REVISION SI ES ADMIN
     const [usuario, setusUsuario] = useState(null);
     useEffect(() => {
+        // clean up controller
+        let isSubscribed = true;
         auth.onAuthStateChanged((user) => {
-            if (user) setusUsuario(user.email);
+            if (user && isSubscribed) setusUsuario(user.email);
         })
+        // cancel subscription to useEffect
+        return () => (isSubscribed = false)
     }, []);
 
     //ABRE MODAL DE BORRADO
