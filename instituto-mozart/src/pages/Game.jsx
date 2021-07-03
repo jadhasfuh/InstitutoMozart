@@ -43,7 +43,7 @@ const Game = () => {
             if (global.url !== "") setCarga(false);
             else historial.push("/zonajuegos");
         }, 500)
-    }, []);
+    }, [historial]);
 
     return (
 

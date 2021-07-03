@@ -20,6 +20,8 @@ import {
 } from '@material-ui/core';
 import BounceLoader from "react-spinners/BounceLoader";
 import { blue } from '@material-ui/core/colors';
+import Cookies from 'js-cookie';
+import { auth } from '../firebaseconfig';
 
 const estilos = makeStyles(theme => ({
     root: {
@@ -37,12 +39,25 @@ const Contenedor = () => {
 
     //PANTALLA DE CARGA
     const [carga, setCarga] = useState(false);
+
+    const [email, setEmail] = useState(null);
+    const [pass, setPass] = useState(null);
+
     useEffect(() => {
+        //COOKIES
+        setEmail(Cookies.get('email'));
+        setPass(Cookies.get('pass'));
+        if (email === "admin@mozart.com" && pass !== null) {
+            auth.signInWithEmailAndPassword(email, pass)
+                .then((r) => { })
+                .catch((err) => { });
+        }
+        //PANTALLA DE CARGA
         setCarga(true);
         setTimeout(() => {
             setCarga(false);
         }, 2000)
-    }, []);
+    }, [email, pass]);
 
     //ESTILOS
     const classes = estilos();

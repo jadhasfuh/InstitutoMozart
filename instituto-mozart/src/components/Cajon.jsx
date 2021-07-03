@@ -8,6 +8,7 @@ import {
     ListItemIcon,
     ListItemText
 } from '@material-ui/core';
+import Cookies from 'js-cookie'
 import logo from '../images/logo.png';
 import { auth } from '../firebaseconfig';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
@@ -50,17 +51,19 @@ const Cajon = (props) => {
     const historial = useHistory();
 
     //HOOK USUARIO
-    const [usuario, setusUsuario] = useState(null);
+    const [usuario, setUsuario] = useState(null);
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
-            if (user) setusUsuario(user.email);
+            if (user) setUsuario(user.email);
         })
     }, []);
 
     //BOTON Y REDIRECCION CERRAR SESION
     const cerrarSesion = () => {
         auth.signOut();
-        setusUsuario(null);
+        setUsuario(null);
+        Cookies.remove('email')
+        Cookies.remove('pass')
         historial.push("/login");
     }
 

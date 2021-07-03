@@ -3,13 +3,12 @@ import 'firebase/firestore';
 import "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBiFnQYbRd0N2D-iBk2tO3ThPxN4DiLml0",
-  authDomain: "instituto-mozart.firebaseapp.com",
-  projectId: "instituto-mozart",
-  storageBucket: "instituto-mozart.appspot.com",
-  messagingSenderId: "435267396968",
-  appId: "1:435267396968:web:23b88e5ab9296af18be2dd",
-  measurementId: "G-DY5K3G2K2F"
+  apiKey: "AIzaSyCyePh2mWLVePVyPDKdeCvjvq0fF1B4JmE",
+  authDomain: "instituto-moza-7f2e1.firebaseapp.com",
+  projectId: "instituto-moza-7f2e1",
+  storageBucket: "instituto-moza-7f2e1.appspot.com",
+  messagingSenderId: "137353387610",
+  appId: "1:137353387610:web:ba915fa8d5e666ad540263"
 };
 // eslint-disable-next-line
 const inicia = firebase.initializeApp(firebaseConfig);

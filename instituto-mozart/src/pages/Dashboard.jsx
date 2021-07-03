@@ -29,7 +29,7 @@ const Dashboard = () => {
         auth.onAuthStateChanged((user) => {
             if (!user) historial.push("/login");
         })
-    }, []);
+    }, [historial]);
 
     return (
 

@@ -8,6 +8,8 @@ import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/styles';
 import { useHistory } from 'react-router-dom';
 import Alert from '@material-ui/lab/Alert';
+import Cookies from 'js-cookie'
+
 
 const useClasses = makeStyles(theme => ({
 
@@ -43,10 +45,17 @@ const useClasses = makeStyles(theme => ({
 
 const InicioSesion = () => {
 
+    //ESTILOS
     const classes = useClasses();
+
+    //SIGN IN HOOKS
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [msgError, setMsgError] = useState(null);
+
+    //COOKIE CHECKBOX
+    const [checked, setChecked] = useState(false);
+    
 
     const historial = useHistory();
 
@@ -55,14 +64,18 @@ const InicioSesion = () => {
         event.preventDefault()
         auth.signInWithEmailAndPassword(email, pass)
             .then((r) => {
+                if(checked){
+                    Cookies.set('email', email);
+                    Cookies.set('pass', pass);
+                }
                 historial.push("/");
             })
             .catch((err) => {
                 if (err.code === 'auth/wrong-password') {
                     setMsgError('La contraseña no coincide :(');
-                }else if (err.code === 'auth/invalid-email'){
+                } else if (err.code === 'auth/invalid-email') {
                     setMsgError('Correo electrónico inválido :(');
-                }else if (err.code === 'auth/user-not-found'){
+                } else if (err.code === 'auth/user-not-found') {
                     setMsgError('Usuario inexistente :(');
                 }
             });
@@ -110,6 +123,8 @@ const InicioSesion = () => {
                             <Checkbox
                                 name="checkedB"
                                 color="secondary"
+                                checked={checked}
+                                onChange={(e) => { setChecked(true) }}
                             />
                         }
                         className={classes.clabel}
@@ -127,7 +142,7 @@ const InicioSesion = () => {
                 </form>
                 {
                     msgError != null ? (
-                        <Alert severity="error" className = {classes.clabel}>
+                        <Alert severity="error" className={classes.clabel}>
                             {msgError}
                         </Alert>
                     )
