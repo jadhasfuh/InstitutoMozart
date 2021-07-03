@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { makeStyles, Typography, Grid, Card, CardContent, CardMedia, CardActions, Button } from '@material-ui/core';
+import { makeStyles, Typography, Grid, Card, CardContent, CardMedia } from '@material-ui/core';
 import BounceLoader from "react-spinners/BounceLoader";
 import { blue } from '@material-ui/core/colors';
-import ubicacion from './../images/ubicacion.JPG'
 
 const useStyles = makeStyles((theme) => ({
 
@@ -11,14 +10,14 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '30px'
     },
     root: {
-        marginTop: '30px'
+        marginTop: '30px',
     },
-    location: {
-        display: 'flex'
+    ubicacion: {
+        width: '80%'
     },
     img: {
         width: '100%',
-        height: '100%'
+        height: '400px'
     }
 
 }));
@@ -61,25 +60,26 @@ const Info = () => {
                             container
                             alignItems='center'
                             justify='center'
-                            direction='column'
+                            direction='row'
                             className={classes.root}
                         >
-                            <Card className={classes.location}>
+                            <Card className={classes.ubicacion}>
                                 <CardContent>
                                     <center>
-                                        <Typography gutterBottom variant="h5">
+                                        <Typography gutterBottom variant="h3">
                                             ¡Visítanos!
                                         </Typography>
+                                        <Typography variant="h6" color="textSecondary" component="p">
+                                            Estamos ubicados en Miguel Hidalgo #105, Centro <br />
+                                            Horario de atención: Lunes a Viernes 9:00 AM - 5:00 PM
+                                        </Typography>
                                     </center>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        Estamos ubicados en Miguel Hidalgo #105, Centro <br />
-                                        Horario de atención: Lunes a Viernes 9:00 AM - 5:00 PM
-                                    </Typography>
                                 </CardContent>
-                                <CardActions>
-                                    <Button size="small" color="primary">Ver Ubicación</Button>
-                                </CardActions>
-                                <CardMedia component="img" image={ubicacion} />
+                                <CardMedia
+                                    component="iframe"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747.7979251633938!2d-102.72507478554215!3d20.058905125553725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842ee352d03b3461%3A0x4b04416539db5eb0!2sCalle%20Miguel%20Hidalgo%20105%2C%20Santuario%2C%20Centro%20Tres%2C%2059053%20Sahuayo%20de%20Morelos%2C%20Mich.!5e0!3m2!1ses-419!2smx!4v1625279876117!5m2!1ses-419!2smx"
+                                    className={classes.img}
+                                />
                             </Card>
                         </Grid>
                     )
