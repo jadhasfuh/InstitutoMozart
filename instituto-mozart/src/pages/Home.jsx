@@ -71,7 +71,7 @@ const Home = () => {
                 item
                 alignItems='center'
                 justify='center'
-                direction='column'
+                direction='row'
                 xs = {12}
             >
                 <Header />

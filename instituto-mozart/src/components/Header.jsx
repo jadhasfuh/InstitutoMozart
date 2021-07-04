@@ -1,5 +1,5 @@
 import React from 'react'
-import {Typography, makeStyles, Grid} from '@material-ui/core';
+import { Typography, makeStyles, Grid } from '@material-ui/core';
 import back from '../images/header-bg.jpg';
 
 const useClasses = makeStyles(theme => ({
@@ -12,10 +12,12 @@ const useClasses = makeStyles(theme => ({
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         marginTop: '0px'
-    }, 
+    },
     texto: {
         marginTop: '40vh',
-        width: '70%',
+        marginLeft:'10%',
+        textAlign: 'center',
+        width: '80%',
         fontSize: '55px',
         color: '#FFFFFF',
         textShadow: '2px 2px 15px black',
@@ -32,23 +34,21 @@ const Header = () => {
 
     return (
 
-            <Grid 
-                container
-                item
-                alignItems='center'
-                justify='center'
-                direction='row'
-               >
+        <Grid
+            container
+            item
+            alignItems='center'
+            justify='center'
+            direction='row'
+        >
 
-                <Grid item xs={12} sm={12} md={10} lg={10} className={classes.lema}>
-                    <center>
-                        <Typography className={classes.texto}>
-                            EDUCAR CON CREATIVIDAD
-                        </Typography>
-                    </center>
-                </Grid>   
-                    
+            <Grid item xs={12} sm={12} md={10} lg={10} className={classes.lema}>
+                <Typography className={classes.texto}>
+                    EDUCAR CON CREATIVIDAD
+                </Typography>
             </Grid>
+
+        </Grid>
 
     )
 }

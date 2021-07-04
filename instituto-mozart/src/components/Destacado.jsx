@@ -22,21 +22,18 @@ const Destacado = () => {
 
     return (
 
-        <div>
+        <Grid
+            container
+            item
+            alignItems='center'
+            justify='center'
+            direction='row'
+            className={classes.root}
+        >
 
-            <Grid
-                container
-                alignItems='center'
-                justify='center'
-                direction='row'
-                className={classes.root}
-            >
+            <Grid item xs={10} className={classes.lema} />
 
-                <Grid item xs={12} sm={12} md={10} lg={10} className={classes.lema} />
-
-            </Grid>
-
-        </div>
+        </Grid>
 
     )
 

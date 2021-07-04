@@ -72,7 +72,7 @@ const Info = () => {
                             <Card className={classes.ubicacion} elevation={0}>
                                 <CardContent>
                                     <center>
-                                        <Typography gutterBottom variant="h3">
+                                        <Typography gutterBottom variant="h4">
                                             ¡Visítanos!
                                         </Typography>
                                         <Typography variant="h6" color="textSecondary" component="p">

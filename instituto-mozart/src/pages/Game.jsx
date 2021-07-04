@@ -8,20 +8,16 @@ import '../gobalVariables';
 const useStyles = makeStyles((theme) => ({
 
     frame: {
-        position: 'absolute',
-        rigth: 0,
-        left: 0,
-        top: 0,
-        margiLeft: 'auto',
-        marginRight: 'auto',
+        display: 'block',
+        border: 'none',
         width: '100%',
-        height: '100%',
+        height: '100vh'
+    },
+    cont: {
+        margin: '0px'
     },
     root: {
-        position: 'relative',
-        overflow: 'hidden',
-        width: '100%',
-        paddingTop: '55%',
+        margin: '0px'
     }
 
 }));
@@ -79,6 +75,7 @@ const Game = () => {
                             xs={12}
                             alignItems="center"
                             justify="center"
+                            className={classes.cont}
                         >
                             <iframe
                                 id="iframe-div"

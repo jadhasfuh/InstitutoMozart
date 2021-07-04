@@ -159,7 +159,7 @@ const ZonaJuegos = () => {
                         >
                             <center>
                                 <Typography variant="h5" className={classes.typography}>
-                                    Juegos Educativos
+                                    ¡Selecciona un juego!
                                 </Typography>
                             </center>
 

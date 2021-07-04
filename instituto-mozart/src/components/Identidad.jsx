@@ -81,9 +81,7 @@ const Identidad = () => {
                 <ModalButton
                     state="valores"
                     title="Valores"
-                    description={`Respeto: Para conducirnos con trato digno y amable con los integrantes de nuestra comunidad, reconociendo las diferencias individuales.
-                    ~\nResponsabilidad: Para manejar con disciplina y compromiso nuestro quehacer de servicio, actuando con eficiencia y eficacia en las actividades educativas.
-                    ~\nHonestidad: Al conducirnos con apego a la verdad y a nuestros principios personales e institucionales siendo coherentes en el decir y el hacer.`}
+                    description="Respeto, responsabilidad, voluntad, honestidad, compasión y amor."
                     color={classes.orange}
                 />
             </Grid>

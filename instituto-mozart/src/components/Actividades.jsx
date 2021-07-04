@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       width: '300px',
     },
-    maxHeight: 320,
+    maxHeight: 330,
     margin: '20px'
   },
   typography: {

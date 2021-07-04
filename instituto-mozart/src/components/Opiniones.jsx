@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
         width: 450,
         [theme.breakpoints.down('md')]: {
             width: '300px',
-          },
-        maxHeight: 300,
+        },
+        maxHeight: 330,
         margin: '20px',
     },
     avatar: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
     typography: {
         marginTop: '50px',
-        marginBottom: '30px'
+        marginBottom: '20px'
     },
     parrafo: {
         textAlign: 'justify',
