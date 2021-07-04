@@ -53,7 +53,6 @@ const Dashboard = () => {
                 container
                 justify="center"
                 direction="row"
-                spacing={3}
             >
                 <ChangePass />
 

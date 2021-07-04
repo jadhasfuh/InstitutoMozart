@@ -18,7 +18,9 @@ const useClasses = makeStyles(theme => ({
             width: `calc(100% - ${240}px)`,
             marginLeft: '100px'
         },
-    },
+        flexGrow: 1
+    }
+    
 }));
 
 const Footer = () => {
@@ -26,15 +28,14 @@ const Footer = () => {
     const classes = useClasses();
 
     return (
-
-        <div>
-            <Divider/>
             <Grid
                 container
+                item
                 spacing = {4}
                 className = {classes.footer}
                 alignItems = "center"
                 justify = "center"
+                xs = {12}
             >
                 <Grid
                     item
@@ -42,12 +43,13 @@ const Footer = () => {
                     alignItems = "center"
                     justify = "center"
                 >
-                    <Typography className={classes.title}>
+                    <Divider/>
+                    <Divider/>
+                    <center><Typography className={classes.title}>
                         2021 &copy;
-                    </Typography>
+                    </Typography></center>
                 </Grid>
             </Grid>
-        </div>
 
     )
 }

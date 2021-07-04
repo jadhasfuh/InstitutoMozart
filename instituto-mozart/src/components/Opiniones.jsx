@@ -11,6 +11,9 @@ import { red } from '@material-ui/core/colors';
 const useStyles = makeStyles((theme) => ({
     root: {
         width: 450,
+        [theme.breakpoints.down('md')]: {
+            width: '300px',
+          },
         maxHeight: 300,
         margin: '20px',
     },
@@ -37,13 +40,13 @@ const opiniones = [
     },
     {
         inicial: "M",
-        comentario: "La calidad q ofrece y los maestros son altamente especializados y capacitados.",
+        comentario: "La calidad que ofrece y los maestros son altamente especializados y capacitados.",
         nombre: "Mayra de Gomez",
         fecha: "14 de Marzo de 2019"
     },
     {
         inicial: "M",
-        comentario: "La calidad educativa que se afrecerá, ya que los creadores del instituto son  ....",
+        comentario: "Buena calidad educativa que se afrece, ya que los creadores del instituto son personas altamente capacitadas y preparadas.",
         nombre: "Mariccela Murguía",
         fecha: "10 de Marzo de 2019"
     },
@@ -61,7 +64,14 @@ const Opiniones = () => {
 
     return (
 
-        <div>
+        <Grid
+            container
+            alignItems='center'
+            justify='center'
+            direction='row'
+            item
+            xs={12}
+        >
             <center>
                 <Typography variant="h5" className={classes.typography}>
                     OPINIONES
@@ -69,42 +79,42 @@ const Opiniones = () => {
             </center>
             <Grid
                 container
+                item
                 alignItems='center'
                 justify='center'
                 direction='row'
             >
                 {opiniones.map(({ inicial, comentario, nombre, fecha }) =>
-                <Card 
-                    className={classes.root}
-                    key = {comentario+nombre}
-                    elevation={1}
-                >
+                    <Card
+                        className={classes.root}
+                        key={comentario + nombre}
+                        elevation={1}
+                    >
 
-                    <CardHeader
-                        avatar={
-                            <Avatar aria-label="recipe" className={classes.avatar}>
-                                {inicial}
-                            </Avatar>
-                        }
-                        title = {nombre}
-                        subheader = {fecha}
-                    />
-                    <CardContent>
-                        <Typography 
-                            variant = "body2"
-                            color = "textSecondary"
-                            component = "p"
-                            noWrap
-                            className = {classes.parrafo}>
+                        <CardHeader
+                            avatar={
+                                <Avatar aria-label="recipe" className={classes.avatar}>
+                                    {inicial}
+                                </Avatar>
+                            }
+                            title={nombre}
+                            subheader={fecha}
+                        />
+                        <CardContent>
+                            <Typography
+                                variant="body2"
+                                color="textSecondary"
+                                component="p"
+                                className={classes.parrafo}>
                                 {comentario}
-                        </Typography>
-                    </CardContent>
-                    
-                </Card>
+                            </Typography>
+                        </CardContent>
+
+                    </Card>
                 )}
             </Grid>
 
-        </div >
+        </Grid>
 
     )
 }

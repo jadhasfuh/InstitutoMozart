@@ -8,9 +8,12 @@ import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 450,
+    width: '450px',
+    [theme.breakpoints.down('md')]: {
+      width: '300px',
+    },
     maxHeight: 320,
-    margin: '20px',
+    margin: '20px'
   },
   typography: {
     marginTop: '50px',
@@ -18,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     width: '450px',
+    [theme.breakpoints.down('md')]: {
+      width: '300px',
+    },
     height: '200px'
   }
 }));
@@ -28,7 +34,14 @@ const Actividades = ({ listaActividades }) => {
 
   return (
 
-    <div>
+    <Grid
+      container
+      item
+      alignItems='center'
+      justify='center'
+      direction='row'
+      xs={12}
+    >
       <center>
         <Typography variant="h5" className={classes.typography}>
           ACTIVIDADES
@@ -40,10 +53,10 @@ const Actividades = ({ listaActividades }) => {
         justify="center"
         direction="row"
       >
-        {listaActividades.map(({ title, caption, src }) => 
-          <Card className={classes.root} key={title+caption}>
+        {listaActividades.map(({ title, caption, src }) =>
+          <Card className={classes.root} key={title + caption}>
             <CardActionArea>
-              <img src={src} alt="Actividad" className={classes.img}/>
+              <img src={src} alt="Actividad" className={classes.img} />
               <CardContent>
                 <center>
                   <Typography gutterBottom variant="h5">
@@ -53,13 +66,12 @@ const Actividades = ({ listaActividades }) => {
                     {caption}
                   </Typography>
                 </center>
-
               </CardContent>
             </CardActionArea>
           </Card>
         )}
       </Grid>
-    </div>
+    </Grid>
 
   )
 }

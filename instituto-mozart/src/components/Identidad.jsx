@@ -41,7 +41,14 @@ const Identidad = () => {
     const classes = useClasses();
 
     return (
-        <div>
+        <Grid
+            container
+            item
+            alignItems='center'
+            justify='center'
+            direction='column'
+            xs={12}
+        >
 
             <center>
                 <Typography variant="h5" className={classes.typography}>
@@ -81,7 +88,7 @@ const Identidad = () => {
                 />
             </Grid>
 
-        </div>
+        </Grid>
 
     )
 }

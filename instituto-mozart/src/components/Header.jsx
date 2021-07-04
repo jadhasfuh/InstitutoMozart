@@ -32,10 +32,9 @@ const Header = () => {
 
     return (
 
-        <div>
-
             <Grid 
                 container
+                item
                 alignItems='center'
                 justify='center'
                 direction='row'
@@ -50,10 +49,6 @@ const Header = () => {
                 </Grid>   
                     
             </Grid>
-
-            
-
-        </div>
 
     )
 }

@@ -84,7 +84,7 @@ const Post = ({ publicaciones }) => {
         e.preventDefault();
         try {
             await store.collection('publicaciones').doc(id).delete();
-            window.location.replace('');
+            //window.location.replace('');
             setOpenD(false);
         } catch (e) {
             console.log(e);
@@ -126,7 +126,7 @@ const Post = ({ publicaciones }) => {
         }
         try {
             await store.collection('publicaciones').doc(id).set(update);
-            window.location.replace('');
+            //window.location.replace('');
             setOpen(false);
         } catch (e) {
             console.log(e);
