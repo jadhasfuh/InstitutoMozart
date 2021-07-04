@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('md')]: {
             width: '300px',
         },
-        maxHeight: 330,
+        maxHeight: 340,
         margin: '20px',
     },
     avatar: {
@@ -46,7 +46,7 @@ const opiniones = [
     },
     {
         inicial: "M",
-        comentario: "Buena calidad educativa que se afrece, ya que los creadores del instituto son personas altamente capacitadas y preparadas.",
+        comentario: "Los creadores del instituto son personas altamente capacitadas y preparadas.",
         nombre: "Mariccela Murguía",
         fecha: "10 de Marzo de 2019"
     },

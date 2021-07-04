@@ -14,10 +14,6 @@ const useClasses = makeStyles(theme => ({
     },
     footer: {
         textAlign: 'center',
-        [theme.breakpoints.up('md')]: {
-            width: `calc(100% - ${240}px)`,
-            marginLeft: '100px'
-        },
         flexGrow: 1
     }
     
@@ -43,8 +39,7 @@ const Footer = () => {
                     alignItems = "center"
                     justify = "center"
                 >
-                    <Divider/>
-                    <Divider/>
+                    <Divider style={{width:'100%'}}/>
                     <center><Typography className={classes.title}>
                         2021 &copy;
                     </Typography></center>
