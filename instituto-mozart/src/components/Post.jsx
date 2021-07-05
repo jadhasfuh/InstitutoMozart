@@ -169,11 +169,13 @@ const Post = ({ publicaciones }) => {
                             />
                             {
                                 item.imagen !== null ? (
-                                    <CardMedia
-                                        className={classes.media}
-                                        image={item.imagen}
-                                        title="Publicacion"
-                                    />
+                                    <a href={item.imagen}>
+                                        <CardMedia
+                                            className={classes.media}
+                                            image={item.imagen}
+                                            title="Publicacion"
+                                        />
+                                    </a>
                                 ) : (
                                     <span />
                                 )
