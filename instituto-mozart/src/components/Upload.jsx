@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { store } from '../firebaseconfig';
+import { store, inicia } from '../firebaseconfig';
 import { Grid, Paper, TextField, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles';
 import { blue } from '@material-ui/core/colors';
@@ -8,6 +8,7 @@ import Alert from '@material-ui/lab/Alert';
 import BackupIcon from '@material-ui/icons/Backup';
 
 const useStyles = makeStyles((theme) => ({
+
     paper: {
         padding: theme.spacing(2),
         textAlign: 'center',
@@ -26,15 +27,18 @@ const useStyles = makeStyles((theme) => ({
     },
     btnstyle2: {
         "&:hover": {
-            color: theme.palette.getContrastText(blue[500]),
+            color: theme.palette.getContrastText(blue[800]),
             backgroundColor: blue[800]
         },
         marginTop: 20,
-        color: theme.palette.getContrastText(blue[200]),
+        color: theme.palette.getContrastText(blue[500]),
         backgroundColor: blue[500]
     },
     clabel: {
         marginTop: '20px'
+    },
+    input: {
+        display: 'none',
     }
 
 }));
@@ -48,6 +52,26 @@ const Upload = () => {
     const [publicacion, setPublicacion] = useState('');
     const [error, setError] = useState(null);
     const [mensaje, setMensaje] = useState(null);
+    const [button, setButton] = useState(false)
+    const [urls, setUrls] = useState(null)
+
+    var img = null;
+    const date = GetDate();
+
+    //HANDLE IMAGE
+    const handleImageChange = (e) => {
+        setButton(true);
+        img = e.target.files[0];
+        const referencia = inicia.storage().ref();
+        const fileReference = referencia.child(`/${img.name}${date}`);
+        fileReference.put(img).then(() => {
+            setMensaje("Imagen compatible :)");
+            setButton(false);
+            inicia.storage().ref(`${img.name}${date}`).getDownloadURL().then((url) => {
+                setUrls(url);
+            }).catch((e) => console.log('Errors while downloading => ', e));
+        });
+    }
 
     //PUBLICACION 
     const publicar = async (e) => {
@@ -57,21 +81,20 @@ const Upload = () => {
         if (!publicacion.trim()) {
             setError('La descripción está vacia :(');
         }
-
-        const date = GetDate();
         const pub = {
             publication: publicacion,
-            fecha: date
-
+            fecha: date,
+            imagen: urls
         };
 
         try {
             // eslint-disable-next-line
             const data = await store.collection('publicaciones').add(pub);
             setMensaje('Publicación realizada :)');
+            setUrls(null);
             window.location.replace('');
         } catch (e) {
-            setError('Error al publicar, algo salió mal :(');
+            setError(e);
         }
 
         setPublicacion('');
@@ -114,19 +137,31 @@ const Upload = () => {
                                 variant="contained"
                                 className={classes.btnstyle}
                                 fullWidth
+                                disabled = {button}
                             >
                                 PUBLICAR
                             </Button>
                         </Grid>
                         <Grid item xs={2}>
-                            <Button
-                                color='primary'
-                                variant="contained"
-                                fullWidth
-                                className={classes.btnstyle2}
-                            >
-                                <BackupIcon/>
-                            </Button>
+                            <input
+                                accept="image/*"
+                                className={classes.input}
+                                id="contained-button-file"
+                                onChange={handleImageChange}
+                                multiple
+                                type="file"
+                            />
+                            <label htmlFor="contained-button-file">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    fullWidth
+                                    component="span"
+                                    className={classes.btnstyle2}
+                                >
+                                    <BackupIcon />
+                                </Button>
+                            </label>
                         </Grid>
                     </Grid>
 

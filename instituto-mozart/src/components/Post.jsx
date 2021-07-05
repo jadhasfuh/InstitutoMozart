@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import Avatar from '@material-ui/core/Avatar';
 import { grey, orange, red, green } from '@material-ui/core/colors';
 import Button from '@material-ui/core/Button';
@@ -49,6 +50,10 @@ const useStyles = makeStyles((theme) => ({
     },
     aceptar: {
         color: green[500]
+    },
+    media: {
+        height: 0,
+        paddingTop: '56.25%', // 16:9
     }
 
 }));
@@ -162,6 +167,17 @@ const Post = ({ publicaciones }) => {
                                 title="Dirección"
                                 subheader={item.fecha}
                             />
+                            {
+                                item.imagen !== null ? (
+                                    <CardMedia
+                                        className={classes.media}
+                                        image={item.imagen}
+                                        title="Publicacion"
+                                    />
+                                ) : (
+                                    <span />
+                                )
+                            }
                             <CardContent>
                                 <InputBase
                                     multiline

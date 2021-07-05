@@ -66,9 +66,14 @@ const Publicaciones = () => {
     }, []);
 
     return (
-
+        <Grid
+            container
+            justify="center"
+            item
+        >
             <Grid
                 container
+                item
                 justify="center"
                 direction="row"
                 spacing={3}
@@ -106,12 +111,15 @@ const Publicaciones = () => {
                                 )
                                 :
                                 (
-                                    <div className={classes.container}>
+                                    <Grid
+                                        item xs={12}
+                                        container
+                                        className={classes.container}
+                                        justify="center"
+                                    >
                                         <Grid
-                                            item xs={12}
+                                            item
                                             container
-                                            spacing={3}
-                                            className={classes.container}
                                             justify="center"
                                         >
                                             <Typography className={classes.typo}>
@@ -120,12 +128,12 @@ const Publicaciones = () => {
                                             <br />
                                         </Grid>
                                         <EventBusyIcon className={classes.icon} />
-                                    </div>
+                                    </Grid>
                                 )
                         )
                 }
             </Grid>
-
+        </Grid>
     )
 }
 
