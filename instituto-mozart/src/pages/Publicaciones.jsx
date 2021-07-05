@@ -13,7 +13,7 @@ import { blue } from '@material-ui/core/colors';
 const useStyles = makeStyles((theme) => ({
 
     root: {
-        flexGrow: 1
+        flexGrow: 1,
     },
     typo: {
         fontSize: '20px',
@@ -67,12 +67,12 @@ const Publicaciones = () => {
 
     return (
 
-        <div className={classes.root}>
             <Grid
                 container
                 justify="center"
                 direction="row"
                 spacing={3}
+                className={classes.root}
             >
                 {
                     usuario ? (
@@ -125,7 +125,6 @@ const Publicaciones = () => {
                         )
                 }
             </Grid>
-        </div >
 
     )
 }

@@ -5,24 +5,35 @@ import { makeStyles } from '@material-ui/styles';
 import { blue } from '@material-ui/core/colors';
 import { GetDate } from './GetDate';
 import Alert from '@material-ui/lab/Alert';
+import BackupIcon from '@material-ui/icons/Backup';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
-        marginTop: '30px'
+        marginTop: '30px',
+        flexGrow: 1
     },
     btnstyle: {
         "&:hover": {
             color: theme.palette.getContrastText(blue[500]),
             backgroundColor: blue[500]
         },
-        margin: '0px 0',
-        marginTop: '30px',
+        marginTop: 20,
         color: theme.palette.getContrastText(blue[200]),
-        backgroundColor: blue[200]
-    }, clabel: {
+        backgroundColor: blue[200],
+    },
+    btnstyle2: {
+        "&:hover": {
+            color: theme.palette.getContrastText(blue[500]),
+            backgroundColor: blue[800]
+        },
+        marginTop: 20,
+        color: theme.palette.getContrastText(blue[200]),
+        backgroundColor: blue[500]
+    },
+    clabel: {
         marginTop: '20px'
     }
 
@@ -64,59 +75,76 @@ const Upload = () => {
         }
 
         setPublicacion('');
-        
+
     };
 
     return (
         <Grid
             item xs={12}
             container
-            spacing={3}
+            spacing={6}
         >
+            <Paper
+                className={classes.paper}
+                elevation={0}
+                variant="outlined"
+            >
+                <form onSubmit={publicar}>
+                    <TextField
+                        label='Mensaje'
+                        multiline
+                        rows={6}
+                        required
+                        variant="outlined"
+                        value={publicacion}
+                        color="secondary"
+                        fullWidth
+                        onChange={(e) => { setPublicacion(e.target.value) }}
+                    />
+                    <Grid
+                        item
+                        xs={12}
+                        container
+                        direction="row"
+                    >
+                        <Grid item xs={10}>
+                            <Button
+                                type='submit'
+                                color='primary'
+                                variant="contained"
+                                className={classes.btnstyle}
+                                fullWidth
+                            >
+                                PUBLICAR
+                            </Button>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <Button
+                                color='primary'
+                                variant="contained"
+                                fullWidth
+                                className={classes.btnstyle2}
+                            >
+                                <BackupIcon/>
+                            </Button>
+                        </Grid>
+                    </Grid>
 
-            <Grid item xs={12}>
-                <Paper
-                    className={classes.paper}
-                    elevation={0}
-                    variant="outlined"
-                >
-                    <form onSubmit={publicar}>
-                        <TextField
-                            label='Mensaje'
-                            multiline
-                            rows={6}
-                            required
-                            variant="outlined"
-                            value={publicacion}
-                            color="secondary"
-                            fullWidth
-                            onChange={(e) => { setPublicacion(e.target.value) }}
-                        />
-                        <Button
-                            type='submit'
-                            color='primary'
-                            variant="contained"
-                            className={classes.btnstyle}
-                            fullWidth
-                        >
-                            PUBLICAR
-                        </Button>
-                    </form>
-                    {
-                        error &&
-                            <Alert severity="error" className={classes.clabel}>
-                                {error}
-                            </Alert>
-                    }
-                    {
-                        mensaje &&
-                        <Alert severity="success" className={classes.clabel}>
-                            {mensaje}
-                        </Alert>
+                </form>
+                {
+                    error &&
+                    <Alert severity="error" className={classes.clabel}>
+                        {error}
+                    </Alert>
+                }
+                {
+                    mensaje &&
+                    <Alert severity="success" className={classes.clabel}>
+                        {mensaje}
+                    </Alert>
 
-                    }
-                </Paper>
-            </Grid>
+                }
+            </Paper>
         </Grid>
     )
 }

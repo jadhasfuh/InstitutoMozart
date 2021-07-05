@@ -140,7 +140,6 @@ const Post = ({ publicaciones }) => {
             container
             alignItems="center"
             justify="center"
-            spacing={3}
         >
             <Grid
                 item xs={12}

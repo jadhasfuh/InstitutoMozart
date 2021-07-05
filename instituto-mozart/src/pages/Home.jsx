@@ -35,7 +35,7 @@ const Home = () => {
             src: deporte
         },
         {
-            title: 'Musica',
+            title: 'Música',
             caption: 'Taller de iniciación musical.',
             src: musica
         },
