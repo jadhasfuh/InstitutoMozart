@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles((theme) => ({
@@ -55,19 +54,17 @@ const Actividades = ({ listaActividades }) => {
       >
         {listaActividades.map(({ title, caption, src }) =>
           <Card className={classes.root} key={title + caption}>
-            <CardActionArea>
-              <img src={src} alt="Actividad" className={classes.img} />
-              <CardContent>
-                <center>
-                  <Typography gutterBottom variant="h5">
-                    {title}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p" >
-                    {caption}
-                  </Typography>
-                </center>
-              </CardContent>
-            </CardActionArea>
+            <img src={src} alt="Actividad" className={classes.img} />
+            <CardContent>
+              <center>
+                <Typography gutterBottom variant="h5">
+                  {title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p" >
+                  {caption}
+                </Typography>
+              </center>
+            </CardContent>
           </Card>
         )}
       </Grid>
