@@ -89,7 +89,7 @@ const Post = ({ publicaciones }) => {
         e.preventDefault();
         try {
             await store.collection('publicaciones').doc(id).delete();
-            //window.location.replace('');
+            window.location.replace('');
             setOpenD(false);
         } catch (e) {
             console.log(e);
@@ -104,12 +104,14 @@ const Post = ({ publicaciones }) => {
     //HOOK STATE DE LOS DATOS A EDITAR
     const [publica, setPublica] = useState(null);
     const [fecha, setFecha] = useState(null);
-    const [id, setId] = useState(null)
+    const [imagen, setImagen] = useState(null);
+    const [id, setId] = useState(null);
 
     //ABRE MODAL DE EDICION
-    const editarPublicacion = (id, publication, fecha) => {
+    const editarPublicacion = (id, publication, fecha, imag) => {
         setPublica(publication);
         setFecha(fecha);
+        setImagen(imag);
         setId(id);
         setOpen(true);
     }
@@ -127,11 +129,12 @@ const Post = ({ publicaciones }) => {
         e.preventDefault();
         const update = {
             publication: publica,
-            fecha: fecha
+            fecha: fecha,
+            imagen: imagen
         }
         try {
             await store.collection('publicaciones').doc(id).set(update);
-            //window.location.replace('');
+            window.location.replace('');
             setOpen(false);
         } catch (e) {
             console.log(e);
@@ -207,7 +210,7 @@ const Post = ({ publicaciones }) => {
                                             size="small"
                                             onClick={
                                                 (id, publication) => {
-                                                    editarPublicacion(item.id, item.publication, item.fecha);
+                                                    editarPublicacion(item.id, item.publication, item.fecha, item.imagen);
                                                 }
                                             }
                                             className={classes.editar}
