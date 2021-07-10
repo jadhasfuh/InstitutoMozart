@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, InputBase, TextField } from '@material-ui/core'
-import { auth } from '../firebaseconfig';
+import { auth, store, inicia } from '../firebaseconfig';
 import { makeStyles } from '@material-ui/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -13,7 +13,6 @@ import CardActions from '@material-ui/core/CardActions';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff'; //ERASE
 import EditIcon from '@material-ui/icons/Edit'; //EDIT
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline'; //ACCEPT
-import { store } from '../firebaseconfig';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -76,12 +75,18 @@ const Post = ({ publicaciones }) => {
     }, []);
 
     //ABRE MODAL DE BORRADO
-    const borrarPublicacion = async (id) => {
+    const borrarPublicacion = async (id,ref) => {
         setId(id);
+        setReferencia(ref);
         setOpenD(true);
     }
 
-    //HOOK MODAL BORRADO
+    //HOOK STATES
+    const [publica, setPublica] = useState(null);
+    const [fecha, setFecha] = useState(null);
+    const [imagen, setImagen] = useState(null);
+    const [referencia, setReferencia] = useState(null);
+    const [id, setId] = useState(null);
     const [openD, setOpenD] = useState(false);
 
     //BORRADO DE ACUERDO AL ID DE PUBLICACION
@@ -89,7 +94,14 @@ const Post = ({ publicaciones }) => {
         e.preventDefault();
         try {
             await store.collection('publicaciones').doc(id).delete();
-            window.location.replace('');
+            // BORRAR LA IMAGEN
+            const borrado = inicia.storage().ref().child(`${referencia}`);
+            borrado.delete().then(function () {
+                //BORRADO
+                window.location.replace('');
+            }).catch(function (error) {
+                console.log(error);
+            });
             setOpenD(false);
         } catch (e) {
             console.log(e);
@@ -101,17 +113,12 @@ const Post = ({ publicaciones }) => {
         setOpenD(false);
     };
 
-    //HOOK STATE DE LOS DATOS A EDITAR
-    const [publica, setPublica] = useState(null);
-    const [fecha, setFecha] = useState(null);
-    const [imagen, setImagen] = useState(null);
-    const [id, setId] = useState(null);
-
     //ABRE MODAL DE EDICION
-    const editarPublicacion = (id, publication, fecha, imag) => {
+    const editarPublicacion = (id, publication, fecha, imag, ref) => {
         setPublica(publication);
         setFecha(fecha);
         setImagen(imag);
+        setReferencia(ref);
         setId(id);
         setOpen(true);
     }
@@ -130,7 +137,8 @@ const Post = ({ publicaciones }) => {
         const update = {
             publication: publica,
             fecha: fecha,
-            imagen: imagen
+            imagen: imagen,
+            referencia: referencia
         }
         try {
             await store.collection('publicaciones').doc(id).set(update);
@@ -183,23 +191,29 @@ const Post = ({ publicaciones }) => {
                                     <span />
                                 )
                             }
-                            <CardContent>
-                                <InputBase
-                                    multiline
-                                    value={item.publication}
-                                    disabled={true}
-                                    fullWidth
-                                    className={classes.parrafo}
-                                />
-                            </CardContent>
+                            {
+                                (item.publication !== null && item.publication.trim() !== "") ? (
+                                    <CardContent>
+                                        <InputBase
+                                            multiline
+                                            value={item.publication}
+                                            disabled={true}
+                                            fullWidth
+                                            className={classes.parrafo}
+                                        />
+                                    </CardContent>
+                                ) : (
+                                    <span />
+                                )
+                            }
                             {
                                 usuario ? (
                                     <CardActions>
                                         <Button
                                             size="small"
                                             onClick={
-                                                (id) => {
-                                                    borrarPublicacion(item.id);
+                                                (id, referencia) => {
+                                                    borrarPublicacion(item.id, item.referencia);
                                                 }
                                             }
                                             className={classes.borrar}
@@ -210,7 +224,7 @@ const Post = ({ publicaciones }) => {
                                             size="small"
                                             onClick={
                                                 (id, publication) => {
-                                                    editarPublicacion(item.id, item.publication, item.fecha, item.imagen);
+                                                    editarPublicacion(item.id, item.publication, item.fecha, item.imagen, item.referencia);
                                                 }
                                             }
                                             className={classes.editar}

@@ -52,8 +52,9 @@ const Upload = () => {
     const [publicacion, setPublicacion] = useState('');
     const [error, setError] = useState(null);
     const [mensaje, setMensaje] = useState(null);
-    const [button, setButton] = useState(false)
-    const [urls, setUrls] = useState(null)
+    const [button, setButton] = useState(false);
+    const [urls, setUrls] = useState(null);
+    const [reference, setReference] = useState(null);
 
     var img = null;
     const date = GetDate();
@@ -67,9 +68,10 @@ const Upload = () => {
         fileReference.put(img).then(() => {
             setMensaje("Imagen compatible :)");
             setButton(false);
-            inicia.storage().ref(`${img.name}${date}`).getDownloadURL().then((url) => {
+            inicia.storage().ref(`/${img.name}${date}`).getDownloadURL().then((url) => {
                 setUrls(url);
-            }).catch((e) => console.log('Errors while downloading => ', e));
+                setReference(`/${img.name}${date}`);
+            }).catch((e) => console.log(e));
         });
     }
 
@@ -78,27 +80,26 @@ const Upload = () => {
 
         e.preventDefault();
 
-        if (!publicacion.trim()) {
+        if (!publicacion.trim() && urls == null) {
             setError('La descripción está vacia :(');
+        } else {
+            const pub = {
+                publication: publicacion,
+                fecha: date,
+                imagen: urls,
+                referencia: reference
+            };
+            try {
+                // eslint-disable-next-line
+                const data = await store.collection('publicaciones').add(pub);
+                setMensaje('Publicación realizada :)');
+                setUrls(null);
+                window.location.replace('');
+            } catch (e) {
+                setError(e);
+            }
+            setPublicacion('');
         }
-        const pub = {
-            publication: publicacion,
-            fecha: date,
-            imagen: urls
-        };
-
-        try {
-            // eslint-disable-next-line
-            const data = await store.collection('publicaciones').add(pub);
-            setMensaje('Publicación realizada :)');
-            setUrls(null);
-            window.location.replace('');
-        } catch (e) {
-            setError(e);
-        }
-
-        setPublicacion('');
-
     };
 
     return (
@@ -117,7 +118,6 @@ const Upload = () => {
                         label='Mensaje'
                         multiline
                         rows={6}
-                        required
                         variant="outlined"
                         value={publicacion}
                         color="secondary"
@@ -137,7 +137,7 @@ const Upload = () => {
                                 variant="contained"
                                 className={classes.btnstyle}
                                 fullWidth
-                                disabled = {button}
+                                disabled={button}
                             >
                                 PUBLICAR
                             </Button>
@@ -158,6 +158,7 @@ const Upload = () => {
                                     fullWidth
                                     component="span"
                                     className={classes.btnstyle2}
+                                    disabled={button}
                                 >
                                     <BackupIcon />
                                 </Button>
