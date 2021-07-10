@@ -75,9 +75,10 @@ const Post = ({ publicaciones }) => {
     }, []);
 
     //ABRE MODAL DE BORRADO
-    const borrarPublicacion = async (id,ref) => {
+    const borrarPublicacion = async (id, ref, ima) => {
         setId(id);
         setReferencia(ref);
+        setImagen(ima);
         setOpenD(true);
     }
 
@@ -94,14 +95,18 @@ const Post = ({ publicaciones }) => {
         e.preventDefault();
         try {
             await store.collection('publicaciones').doc(id).delete();
-            // BORRAR LA IMAGEN
-            const borrado = inicia.storage().ref().child(`${referencia}`);
-            borrado.delete().then(function () {
-                //BORRADO
+            if (imagen !== null) {
+                // BORRAR LA IMAGEN
+                const borrado = inicia.storage().ref().child(`${referencia}`);
+                borrado.delete().then(function () {
+                    //BORRADO
+                    window.location.replace('');
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }else{
                 window.location.replace('');
-            }).catch(function (error) {
-                console.log(error);
-            });
+            }
             setOpenD(false);
         } catch (e) {
             console.log(e);
@@ -213,7 +218,7 @@ const Post = ({ publicaciones }) => {
                                             size="small"
                                             onClick={
                                                 (id, referencia) => {
-                                                    borrarPublicacion(item.id, item.referencia);
+                                                    borrarPublicacion(item.id, item.referencia, item.imagen);
                                                 }
                                             }
                                             className={classes.borrar}
