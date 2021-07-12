@@ -76,7 +76,6 @@ const Publicaciones = () => {
                 item
                 justify="center"
                 direction="row"
-                spacing={3}
                 className={classes.root}
             >
                 {

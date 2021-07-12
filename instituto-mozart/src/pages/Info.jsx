@@ -76,8 +76,7 @@ const Info = () => {
                                             ¡Visítanos!
                                         </Typography>
                                         <Typography variant="h6" color="textSecondary" component="p">
-                                            Estamos ubicados en Miguel Hidalgo #105, Centro <br />
-                                            Horario de atención: Lunes a Viernes 9:00 AM - 5:00 PM
+                                            Estamos ubicados en la calle Miguel Hidalgo #105 col. Centro en Sahuayo, Mich.
                                         </Typography>
                                     </center>
                                 </CardContent>
