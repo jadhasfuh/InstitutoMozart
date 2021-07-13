@@ -6,12 +6,17 @@ import { useHistory } from "react-router-dom";
 import '../gobalVariables';
 import { IconContext } from 'react-icons';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
+import cono from '../images/cono.png';
 
 const useStyles = makeStyles((theme) => ({
 
-    typography: {
-        marginTop: '50px',
-        marginBottom: '30px'
+    green: {
+        color: theme.palette.getContrastText(green[500]),
+        backgroundColor: green[500],
+        boxShadow: theme.shadows[3],
+        width: theme.spacing(15),
+        height: theme.spacing(15),
+        cursor: 'pointer'
     },
     blue: {
         color: theme.palette.getContrastText(blue[500]),
@@ -21,16 +26,7 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(15),
         cursor: 'pointer'
     },
-    green: {
-        color: '#fff',
-        backgroundColor: green[500],
-        boxShadow: theme.shadows[3],
-        width: theme.spacing(15),
-        height: theme.spacing(15),
-        cursor: 'pointer'
-    },
     orange: {
-        color: '#fff',
         backgroundColor: orange[500],
         boxShadow: theme.shadows[3],
         width: theme.spacing(15),
@@ -38,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
         cursor: 'pointer'
     },
     red: {
-        color: '#fff',
         backgroundColor: red[500],
         boxShadow: theme.shadows[3],
         width: theme.spacing(15),
@@ -52,6 +47,20 @@ const useStyles = makeStyles((theme) => ({
     },
     root: {
         flexGrow: 1
+    },
+    typography: {
+        marginTop: '100px',
+        marginBottom: '30px',
+        fontSize: '50px',
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '40px'
+        },
+        textAlign: 'center',
+        flexGrow: 1
+    },
+    imagen: {
+        width: '40%',
+        margin: '0 auto'
     }
 
 }));
@@ -65,6 +74,7 @@ const ZonaJuegos = () => {
     const historial = useHistory();
 
     const juegos = [
+        /*
         {
             clase: classes.blue,
             juego: "https://arbolabcgames.top/L4A/",
@@ -105,6 +115,7 @@ const ZonaJuegos = () => {
             juego: "https://arbolabcgames.top/Tiro_libre/game/index.html",
             titulo: "FUTBOL",
         }
+        */
 
     ];
 
@@ -157,12 +168,6 @@ const ZonaJuegos = () => {
                             xs={12}
                             className={classes.root}
                         >
-                            <center>
-                                <Typography variant="h5" className={classes.typography}>
-                                    ¡Selecciona un juego!
-                                </Typography>
-                            </center>
-
                             <Grid
                                 container
                                 item
@@ -173,27 +178,43 @@ const ZonaJuegos = () => {
                                 spacing={5}
                             >
                                 {
-                                    juegos.map(({ clase, juego, titulo }) =>
-                                        <Paper
-                                            className={classes.paper}
-                                            elevation={0}
-                                            key={titulo}
-                                        >
-                                            <Avatar
-                                                className={clase}
-                                                onClick={
-                                                    () => {
-                                                        global.url = juego
-                                                        historial.replace('/game');
-                                                    }
-                                                }
+                                    juegos.length > 0 ? (
+                                        juegos.map(({ clase, juego, titulo }) =>
+                                            <Paper
+                                                className={classes.paper}
+                                                elevation={0}
+                                                key={titulo}
                                             >
-                                                <IconContext.Provider value={{ fontSize: '6em' }}>
-                                                    <SportsEsportsIcon />
-                                                </IconContext.Provider>
-                                            </Avatar> <br />
-                                            <Typography>{titulo}</Typography>
-                                        </Paper>
+                                                <Avatar
+                                                    className={clase}
+                                                    onClick={
+                                                        () => {
+                                                            global.url = juego
+                                                            historial.replace('/game');
+                                                        }
+                                                    }
+                                                >
+                                                    <IconContext.Provider value={{ fontSize: '6em' }}>
+                                                        <SportsEsportsIcon />
+                                                    </IconContext.Provider>
+                                                </Avatar> <br />
+                                                <Typography>{titulo}</Typography>
+                                            </Paper>
+                                        )
+                                    ) : (
+                                        <Grid
+                                            container
+                                            item
+                                            alignItems='center'
+                                            justify='center'
+                                            direction='row'
+                                            xs={12}
+                                        >
+                                            <Typography className={classes.typography}>
+                                                Zona en Construcción
+                                            </Typography> 
+                                            <img src={cono} alt="Cono zona en construccion" className={classes.imagen}/>
+                                        </Grid>
                                     )
                                 }
                             </Grid>
